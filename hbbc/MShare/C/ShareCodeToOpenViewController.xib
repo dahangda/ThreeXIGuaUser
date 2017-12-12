@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareCodeToOpenViewController">
+            <connections>
+                <outlet property="LightLabel" destination="vB3-Xu-pIU" id="rSq-Zr-wtS"/>
+                <outlet property="labelInput" destination="tun-rf-dAg" id="TxU-kC-k44"/>
+                <outlet property="lightopenBtn" destination="wrW-UX-IOX" id="ZQb-0K-17h"/>
+                <outlet property="numberInputBtn" destination="BZa-xP-fCe" id="0BW-ch-M05"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手电筒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB3-Xu-pIU">
+                    <rect key="frame" x="252" y="637" width="72" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="输入物品编号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tun-rf-dAg">
+                    <rect key="frame" x="50" y="637" width="80" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="yPt-m0-kYF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZa-xP-fCe">
+                    <rect key="frame" x="68" y="584" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="2qg-PV-MX1"/>
+                    </constraints>
+                    <state key="normal" image="mshare_scan_input.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-UX-IOX">
+                    <rect key="frame" x="266" y="584" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="4Aq-0D-3ip"/>
+                        <constraint firstAttribute="height" constant="45" id="q4l-Yo-WdX"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="mshare_scan_torch.png"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vB3-Xu-pIU" firstAttribute="top" secondItem="wrW-UX-IOX" secondAttribute="bottom" constant="8" symbolic="YES" id="0Z7-gi-iA3"/>
+                <constraint firstItem="tun-rf-dAg" firstAttribute="baseline" secondItem="vB3-Xu-pIU" secondAttribute="baseline" id="79r-ld-aFQ"/>
+                <constraint firstItem="tun-rf-dAg" firstAttribute="top" secondItem="BZa-xP-fCe" secondAttribute="bottom" constant="8" symbolic="YES" id="F64-LC-gcH"/>
+                <constraint firstItem="wrW-UX-IOX" firstAttribute="centerX" secondItem="vB3-Xu-pIU" secondAttribute="centerX" id="JG9-1T-iXW"/>
+                <constraint firstItem="tun-rf-dAg" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottomMargin" constant="-8" id="PYG-9F-iXt"/>
+                <constraint firstItem="BZa-xP-fCe" firstAttribute="top" secondItem="wrW-UX-IOX" secondAttribute="top" id="Ua5-Cy-xaW"/>
+                <constraint firstAttribute="trailing" secondItem="wrW-UX-IOX" secondAttribute="trailing" constant="64" id="XAo-kK-Ywt"/>
+                <constraint firstItem="tun-rf-dAg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="jDE-oC-Uar"/>
+                <constraint firstAttribute="trailing" secondItem="vB3-Xu-pIU" secondAttribute="trailing" constant="51" id="jLD-rt-Cig"/>
+                <constraint firstItem="tun-rf-dAg" firstAttribute="firstBaseline" secondItem="vB3-Xu-pIU" secondAttribute="firstBaseline" id="p95-BZ-tbL"/>
+                <constraint firstItem="BZa-xP-fCe" firstAttribute="centerX" secondItem="tun-rf-dAg" secondAttribute="centerX" id="pmL-vz-BWh"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mshare_scan_input.png" width="87" height="87"/>
+        <image name="mshare_scan_torch.png" width="86" height="86"/>
+    </resources>
+</document>
