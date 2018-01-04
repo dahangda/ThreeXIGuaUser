@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^moneyBlock)(NSString *money);
+typedef void (^moneyBlock) (NSString *money);
+typedef void (^tittleBlock) (NSString *tittle);
+ 
 
 @interface PayResultViewController : UIViewController
 
@@ -22,5 +24,6 @@ typedef void(^moneyBlock)(NSString *money);
 @property (nonatomic,strong)UIButton *btmBtn;
 
 @property (nonatomic,copy)moneyBlock getMoneyBlock;
+@property (nonatomic,copy)tittleBlock gettittle;
 
 @end

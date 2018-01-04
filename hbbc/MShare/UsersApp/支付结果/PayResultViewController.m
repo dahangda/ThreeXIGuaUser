@@ -7,7 +7,8 @@
 //
 
 #import "PayResultViewController.h"
-
+#import "CZViewController.h"
+#import "GoodsOrderPayViewController.h"
 @interface PayResultViewController ()
 
 @end
@@ -124,8 +125,12 @@
 }
 
 #pragma  mark 充值
+
 -(void)recharge
+
 {
+ 
+   
     NSDictionary *parameters = @{
                                  @"ECID":ECID,
                                  @"AppType":@"2",
@@ -134,29 +139,36 @@
                                  @"AppID":APPID,
                                  @"OrderType":@"2"
                                  };
+    NSLog(@"88888888");
     [[NetworkSingleton shareManager] httpRequest:parameters url:rechargeUnlockTime success:^(id responseBody){
+        
         DHResponseBodyLog(responseBody);
+        
         if ([responseBody[@"Notice"] isEqualToString:@"操作成功"])
         {
             _money = [NSString stringWithFormat:@"%@",responseBody[@"PayMoney"]];
-            //            //如果是由支付界面进来的
-            //            if ([_result isEqualToString:@"支付成功"])
-            //            {
+            
+            
                             if (self.getMoneyBlock)
                             {
                                 self.getMoneyBlock(_money);
+                                
                             }
-                            [self.navigationController popViewControllerAnimated:YES];
-            //            }
-            //如果是由开锁界面进来的
-            //            else
-            //            {
-//            GoodsOrderPayViewController *gopc = [[GoodsOrderPayViewController alloc]init];
-//            gopc.money = _money;
-//            gopc.responsBody = _resPonsbody;
-//            gopc.GoodsSNID = _carNumber;
-//            [self.navigationController pushViewController:gopc animated:YES];
-            //            }
+                            if (self.gettittle) {
+                                self.gettittle(@"充值");
+                            }
+             
+          NSInteger nuber =  self.navigationController.childViewControllers.count - 2;
+          GoodsOrderPayViewController *vc = self.navigationController.childViewControllers[nuber];
+            vc.title = @"充值";
+            vc.isPlan = NO;
+             [self.navigationController popViewControllerAnimated:YES];
+           
+        
+
+            
+            
+   
         }
         
     } failed:^(NSError *error)

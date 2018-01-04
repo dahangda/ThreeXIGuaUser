@@ -16,7 +16,7 @@
 @property (nonatomic,strong)NSString *OrderPayOrderID;
 @property (nonatomic,strong)NSString *PhoneNumber;
 @property (nonatomic,strong)NSString *Status;
-@property (nonatomic,strong)NSString *SharerName;
+@property (nonatomic,strong)NSString *UserName;
 @property (nonatomic,strong)NSString *OrderTime;
 @property (nonatomic,strong)NSString *GoodsUsePrice;
 

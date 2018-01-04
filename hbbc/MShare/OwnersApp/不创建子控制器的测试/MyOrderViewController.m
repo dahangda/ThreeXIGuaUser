@@ -70,7 +70,7 @@
 #pragma mark - 添加所有子控制器
 - (void)setUpAllChildViewController
 {
-    NSArray *titles = @[@"全部订单",@"待付款订单",@"未完成订单",@"已完成订单"];
+    NSArray *titles = @[@"全部订单",@"预定订单",@"未完成订单",@"已完成订单"];
     for (NSInteger i = 0; i < titles.count; i++) {
         UIViewController *vc = [UIViewController new];
         vc.title = titles[i];
@@ -110,6 +110,7 @@
         DHResponseBodyLog(responseBody);
         self.aorderArr = [responseBody objectForKey:@"OrderList"];
         self.amodelArr = [AssignToObject customModel:@"MyOrderModel" ToArray:_aorderArr];
+        
         [_aTableView reloadData];
         
     } failed:^(NSError *error)

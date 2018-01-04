@@ -17,7 +17,7 @@
 
 //--------------------------测试------------------------------
 /**服务器根路径*/
-#define SEVERROOTPATHONLINE @"http://sdse.shidongvr.com/sdsepi/"
+//#define SEVERROOTPATHONLINE @"http://sdse.shidongvr.com/sdsepi/"
 /**测试服务器根路径（亮亮）*/
 //#define TESTSEVERROOTPATHONLINE @"http://192.168.1.134:8080/sdsepi/"
 /**本地服务器根路径*/
@@ -25,7 +25,7 @@
 /**测试服务器根路径*/
 //#define SEVERROOTPATHONLINE @"http://home.handbbc.com:8680/sdsepi/"
 /**测试服务器根路径*/
-//#define SEVERROOTPATHONLINE @"http://192.168.1.86/sdsepi/"
+#define SEVERROOTPATHONLINE @"http://192.168.1.86/sdsepi/"
 
 /**服务器根路径*/
 //#define SEVERROOTPATH @"http://192.168.1.176/pgynpi/mapp."
@@ -35,11 +35,11 @@
 
 //--------------------------设置------------------------------
 /**86服务器*/
-//#define ECID @"100123"
-//#define APPID  @"26"
+#define ECID @"100123"
+#define APPID  @"26"
 /**线上服务器*/
-#define ECID @"100001"
-#define APPID  @"20"
+//#define ECID @"100001"
+//#define APPID  @"20"
 #define OwnerECID @"100102"
 #define GOODSSNID @"10000024"
 #define kGtAppId           @"2gEoTK2fu69EY0QKn7Heu8"

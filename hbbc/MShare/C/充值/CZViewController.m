@@ -1,19 +1,17 @@
 //
-//  GoodsOrderPayViewController.m
+//  CZViewController.m
 //  hbbciphone
 //
-//  Created by Handbbc on 2017/11/10.
-//  Copyright © 2017年 hbbc. All rights reserved.
+//  Created by YanHang on 2018/1/2.
+//  Copyright © 2018年 hbbc. All rights reserved.
 //
 
-#import "GoodsOrderPayViewController.h"
+#import "CZViewController.h"
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
-//#import "openLockViewController.h"
 #import "PayResultViewController.h"
 
-@interface GoodsOrderPayViewController ()
-
+@interface CZViewController ()
 @property (nonatomic,strong)UILabel *topLabel;
 @property (nonatomic,strong)UILabel *depositLabel;
 
@@ -39,13 +37,9 @@
 @property (nonatomic,strong)NSTimer *timer;
 @property (nonatomic,assign)int time;
 
-
-
 @end
 
-@implementation GoodsOrderPayViewController
-
-
+@implementation CZViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,7 +48,7 @@
     [self.view addGestureRecognizer:pan];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"公寓预定";
+    self.navigationItem.title = @"充值";
     UIImageView *backImg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 7, 25, 25)];
     [backImg setImage:[UIImage imageNamed:@"sharenavigation_back"]];
     UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 25)];
@@ -63,7 +57,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
     
     _topLabel = [[UILabel alloc]init];
-    _topLabel.text = @"您正在预定物品使用，本次预定需支付";
+    _topLabel.text = @"您正在预定物品使用，本次延期支付";
     _topLabel.font = [UIFont systemFontOfSize:15];
     [self.view addSubview:_topLabel];
     [_topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -101,7 +95,7 @@
     
     _firstImgView = [[UIImageView alloc]init];
     _imgArr = [NSArray arrayWithArray:_responsBody[@"PicList"]];
-    NSURL *imgUrl = _imgArr[0];
+   NSURL *imgUrl = _imgArr[0];
     [_firstImgView sd_setImageWithURL:imgUrl placeholderImage:[UIImage imageNamed:@"MD_picture_broken_link_128px_1074947_easyicon.net"]];
     [self.view addSubview:_firstImgView];
     [_firstImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -349,20 +343,11 @@
         self.getMoneyBlock(_depositLabel.text);
     }
     
-    if (self.ttlleBlock) {
-        self.title = @"充值";
-    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)GotoPay
-{     NSString *ordertype = nil;
-    
-    if (self.isPlan == YES) {
-        ordertype = @"1";
-    } else {
-        ordertype = @"2";
-    }
+{
     NSDictionary *parameters = @{
                                  @"ECID":ECID,
                                  @"GoodsSNID":_GoodsSNID,
@@ -372,10 +357,8 @@
                                  @"AppID":APPID,
                                  @"PayMoney":_depositLabel.text,
                                  @"OpenID":@"",
-                                 @"OrderType":ordertype
+                                 @"OrderType":@"1"
                                  };
-    NSLog(@"----------------%@",ordertype);
-    
     [[NetworkSingleton shareManager] httpRequest:parameters url:reservation success:^(id responseBody){
         DHResponseBodyLog(responseBody);
         if ([responseBody[@"Notice"] isEqualToString:@"操作成功"])
@@ -433,16 +416,10 @@
                 _time = 0;
                 _timer = [NSTimer scheduledTimerWithTimeInterval:0.500 target:self selector:@selector(getTheResult) userInfo:nil repeats:YES];
                 [_timer fire];
-                
                 PayResultViewController *prvc = [[PayResultViewController alloc]init];
-                
                 prvc.getMoneyBlock = ^(NSString *money)
                 {
                     _depositLabel.text = money;
-                };
-                prvc.gettittle = ^(NSString *tittle)
-                {
-                    self.title = tittle;
                 };
                 prvc.carNumber = _GoodsSNID;
                 prvc.endTime = _lockingEndTime;
@@ -477,21 +454,16 @@
     if ([status isEqualToString:@"success"])
     {
         PayResultViewController *prvc = [[PayResultViewController alloc]init];
-
         
         prvc.getMoneyBlock = ^(NSString *money)
-        { 
+        {
             _depositLabel.text = money;
             
-        };
-        prvc.gettittle = ^(NSString *tittle) {
-            self.title = tittle ;
         };
         
         
         prvc.carNumber = _GoodsSNID;
         prvc.endTime = _lockingEndTime;
-        
         [self.navigationController pushViewController:prvc animated:YES];
     }
     else
@@ -632,12 +604,4 @@
     _yueLabel.textColor = [UIColor whiteColor];
     _thirdChooseImg.image = [UIImage imageNamed:@"grayBlueCircle"];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
 @end

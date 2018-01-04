@@ -228,7 +228,7 @@
 {
     NSURL *goodsPic = [NSURL URLWithString:obj.GoodsPic];
     [_imgView sd_setImageWithURL:goodsPic];
-    _name.text = obj.SharerName;
+    _name.text = obj.UserName;
     _phone.text = obj.PhoneNumber;
     _orderTime.text = obj.OrderTime;
     _money.text = [NSString stringWithFormat:@"%@",obj.GoodsUsePrice];

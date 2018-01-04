@@ -69,9 +69,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>我需要用照相机来照相</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string> 我要一直定位</string>
+	<string> 共享公寓一直访问您的位置</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>本应用需使用定位功能</string>
+	<string>共享公寓使用期间将要访问您的位置</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>我需要用相册来获取图片</string>
 	<key>UIBackgroundModes</key>

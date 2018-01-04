@@ -406,6 +406,7 @@
 		E38D64451DBE0345000ED820 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D643A1DBE0345000ED820 /* AFURLRequestSerialization.m */; };
 		E38D64461DBE0345000ED820 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D643C1DBE0345000ED820 /* AFURLResponseSerialization.m */; };
 		E38D64471DBE0345000ED820 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E38D643E1DBE0345000ED820 /* AFURLSessionManager.m */; };
+		E3FBE1EB1FFB953300EBBBDD /* CZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FBE1EA1FFB953300EBBBDD /* CZViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1110,6 +1111,8 @@
 		E38D643C1DBE0345000ED820 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		E38D643D1DBE0345000ED820 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		E38D643E1DBE0345000ED820 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		E3FBE1E91FFB953300EBBBDD /* CZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CZViewController.h; sourceTree = "<group>"; };
+		E3FBE1EA1FFB953300EBBBDD /* CZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CZViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2035,6 +2038,7 @@
 		20E149421F147A35007F8C2E /* C */ = {
 			isa = PBXGroup;
 			children = (
+				E3FBE1E81FFB834000EBBBDD /* 充值 */,
 				209DC1771F2F47630094FFDA /* 注册 */,
 				209DC1781F2F47BC0094FFDA /* 实名认证 */,
 				209DC1791F2F48380094FFDA /* 个人信息 */,
@@ -2573,6 +2577,15 @@
 			name = Module;
 			sourceTree = "<group>";
 		};
+		E3FBE1E81FFB834000EBBBDD /* 充值 */ = {
+			isa = PBXGroup;
+			children = (
+				E3FBE1E91FFB953300EBBBDD /* CZViewController.h */,
+				E3FBE1EA1FFB953300EBBBDD /* CZViewController.m */,
+			);
+			path = "充值";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3008,6 +3021,7 @@
 				20020A411FB5452700B17F51 /* HWProgressView.m in Sources */,
 				20FD34BD1F1C595F008F55CF /* ShareAnnotation.m in Sources */,
 				E38D64431DBE0345000ED820 /* AFSecurityPolicy.m in Sources */,
+				E3FBE1EB1FFB953300EBBBDD /* CZViewController.m in Sources */,
 				E38D63551DBDE990000ED820 /* MJRefreshConst.m in Sources */,
 				204D63CE1FCCF799009380E4 /* UIButton+gategory.m in Sources */,
 				20E149361F147A08007F8C2E /* NSArray+MASAdditions.m in Sources */,

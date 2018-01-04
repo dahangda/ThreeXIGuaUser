@@ -370,6 +370,7 @@
 -(void)gotoOrder
 {
     GoodsOrderPayViewController *gopc = [[GoodsOrderPayViewController alloc]init];
+    gopc.isPlan = YES;
     gopc.responsBody = _resPonsbody;
     gopc.GoodsSNID = _carNumber;
     

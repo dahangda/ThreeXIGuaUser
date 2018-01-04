@@ -168,6 +168,7 @@
             //            else
             //            {
             GoodsOrderPayViewController *gopc = [[GoodsOrderPayViewController alloc]init];
+            gopc.isPlan = NO;
             gopc.lockTimeBlock = ^(NSString *lockTime)
             {
                 _timeLabel.text = lockTime;
