@@ -9,13 +9,13 @@
 #import "SharePersonInfoViewController.h"
 #import "SharePersonInforView.h"
 #import "SharePersonInfoModel.h"
-
+#import "AbourtUsView.h"
 @interface SharePersonInfoViewController ()
 
 
 @property (nonatomic,strong)NSArray *objcArr;
 
-@property (nonatomic,strong)SharePersonInforView *spiv;
+@property (nonatomic,strong)AbourtUsView *spiv;
 
 
 @end
@@ -40,7 +40,10 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
     self.navigationItem.title = @"关于我们";
     
-    _spiv = [[SharePersonInforView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    _spiv = [AbourtUsView AbourtUsView];
+    _spiv.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+             //SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [_spiv mask];
     [self.view addSubview:_spiv];
     [self json];
 }

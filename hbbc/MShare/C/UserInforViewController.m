@@ -48,12 +48,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = RGBCOLOR(92, 177, 236);
     
     _labelArray = [NSArray arrayWithObjects:@"用户指南",@"我的消息",@"联系客服",@"关于我们",@"我的钱包",@"我的订单",nil];
     _imgArray = [NSArray arrayWithObjects:@"mshare_guide_icon",@"mshare_message_icon",@"mshare_contact_icon",@"mshare_info_about_us_icon",@"我的钱包",@"我的订单",nil];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _aTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    _aTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
     _aTableView.dataSource = self;
     _aTableView.delegate = self;
     _aTableView.scrollEnabled = NO;
@@ -62,15 +62,19 @@
     [_aTableView setLayoutMargins:UIEdgeInsetsZero];
     [_aTableView registerClass:[UserInforTableViewCell class] forCellReuseIdentifier:@"TableViewCell"];
     
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 230)];
-    headerView.backgroundColor = RGBCOLOR(92, 177, 236);
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 120)];
+    headerView.backgroundColor = [UIColor whiteColor];
+    //[UIColor whiteColor];
+    //RGBCOLOR(92, 177, 236);
     
-    
+#pragma mark ********************tableView头
+
     _aTableView.tableHeaderView = headerView;
-    
+    self.aTableView.sectionHeaderHeight = 10;
+    self.aTableView.sectionFooterHeight = 0;
     [self.view addSubview:_aTableView];
     [_aTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(0);
+        make.top.equalTo(64);
         make.left.equalTo(0);
         make.width.equalTo(SCREEN_WIDTH);
         make.height.equalTo(SCREEN_HEIGHT);
@@ -81,14 +85,15 @@
         UserInforModel *userModel = [[UserInforModel alloc]initWithLeftImg:_imgArray[i] andLeftLabel:_labelArray[i]];
         [self.arr addObject:userModel];
     }
-    
+#pragma mark ********************返回按钮
+
     UIImageView *imgLeft = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, 25, 25)];
     [imgLeft setImage:[UIImage imageNamed:@"sharenavigation_back"]];
     UIButton *btnLeft =[[UIButton alloc]initWithFrame:CGRectMake(0, 30, 80, 25)];
     [btnLeft addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [btnLeft addSubview:imgLeft];
     [self.view addSubview:btnLeft];
-    
+#pragma mark ********************tlttile
     UILabel *titleLabel = [[UILabel alloc]init];
     titleLabel.text = @"个人信息";
     titleLabel.textColor = [UIColor whiteColor];
@@ -98,19 +103,20 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.centerY.equalTo(btnLeft.mas_centerY);
     }];
-    
+#pragma mark ********************头像
+
     _imgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_imgBtn setImage:[UIImage imageNamed:@"头像"] forState:UIControlStateNormal];
     [self.view addSubview:_imgBtn];
     [_imgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(titleLabel.mas_centerX);
+        make.centerX.equalTo(imgLeft.mas_centerX).offset(20);
         make.top.equalTo(titleLabel.bottom).offset(30);
         make.width.height.equalTo(84);
     }];
     _imgBtn.layer.cornerRadius = 42;
     _imgBtn.layer.masksToBounds = YES;
     [_imgBtn addTarget:self action:@selector(changePhoto) forControlEvents:UIControlEventTouchUpInside];
-    
+ #pragma mark ********************头像lable
     UILabel *nameLabel = [[UILabel alloc]init];
     if ([PhoneNum isEqualToString:@""] || PhoneNum == nil)
     {
@@ -121,26 +127,48 @@
         nameLabel.text = PhoneNum;
     }
 
-    nameLabel.textColor = [UIColor whiteColor];
+    nameLabel.textColor = [UIColor grayColor];
     nameLabel.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:nameLabel];
     [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view.mas_centerX);
-        make.top.equalTo(_imgBtn.bottom).offset(20);
+        make.centerX.equalTo(self.view.mas_centerX).offset(-20);
+        make.centerY.equalTo(_imgBtn.mas_centerY).offset(20);
     }];
     
+   #pragma mark ********************昵称lable
+    UILabel *niChengLabel = [[UILabel alloc]init];
+    if ([PhoneNum isEqualToString:@""] || PhoneNum == nil)
+    {
+        niChengLabel.text = @"请登录";
+    }
+    else
+    {
+        niChengLabel.text = @"昵称暂无";
+    }
+    
+    niChengLabel.textColor = [UIColor blackColor];
+    niChengLabel.font = [UIFont systemFontOfSize:16];
+    [self.view addSubview:niChengLabel];
+    [niChengLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX).offset(-20);
+        make.centerY.equalTo(_imgBtn.mas_centerY).offset(-10);
+    }];
+    
+    
+#pragma mark ********************注销按钮
+
     
     UIButton *btmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btmBtn setTitle:@"注销" forState:UIControlStateNormal];
     btmBtn.layer.cornerRadius = 5;
-    [btmBtn setBackgroundColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btmBtn setBackgroundColor:RGBCOLOR(92, 177, 236) forState:UIControlStateNormal];
     [btmBtn setBackgroundColor:RGBCOLOR(227, 62, 65) forState:UIControlStateHighlighted];
     [self.view addSubview:btmBtn];
     [btmBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(-20);
-        make.height.equalTo(50);
-        make.left.equalTo(10);
-        make.right.equalTo(-10);
+        make.bottom.equalTo(-10);
+        make.height.equalTo(40);
+        make.left.equalTo(30);
+        make.right.equalTo(-30);
     }];
     [btmBtn addTarget:self action:@selector(goToLoad) forControlEvents:UIControlEventTouchUpInside];
     
@@ -157,11 +185,42 @@
 
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section
-{
-    return 6;
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerview = nil;
+    headerview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
+    return headerview;
+    
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//
+//    return 3;
+//}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
+    
+    return 3;
+    
+}
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    NSLog(@"%lu",section);
+    NSUInteger section_number = 0;
+    if (section == 0) {
+        section_number = 3;
+    }
+    else if (section == 1){
+        section_number = 2;
+        
+    }
+    else if(section == 2){
+        
+           section_number = 1;
+    }
+    return section_number ;
+}
+
 
 -(UIImagePickerController *)upc
 {
@@ -176,40 +235,84 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UserInforTableViewCell *cell = nil;
-    UserInforModel *model = _arr[indexPath.row];
+    
+      NSLog(@"%lu-------------------%lu",indexPath.section,indexPath.row);
+    if (indexPath.section == 0) {
+        UserInforModel *model = _arr[indexPath.row];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell  setValue:model];
+        
+    }
+   else if (indexPath.section == 1) {
+       UserInforModel *model = _arr[indexPath.row + 3];
+       cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell"];
+       cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+       cell.selectionStyle = UITableViewCellSelectionStyleNone;
+       [cell  setValue:model];
+       
+    }
+   else if (indexPath.section == 2){
+  
+    UserInforModel *model = _arr[indexPath.row + 5];
     cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell  setValue:model];
+      
+   }
+    
     return  cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
 {
-    switch (indexPath.row) {
-        case 0:
-            [self.navigationController pushViewController:[[UserIntroViewController alloc]init] animated:YES];
+    if (indexPath.section == 0) {
+         NSLog(@"%lu-------------------%lu",indexPath.section,indexPath.row);
+        switch (indexPath.row) {
+            case 0:
+                [self.navigationController pushViewController:[[UserIntroViewController alloc]init] animated:YES];
+                break;
+            case 1:
+                [self.navigationController pushViewController:[[UserInstructionController alloc]init] animated:YES];
+                break;
+            case 2:
+                
+                [self.navigationController pushViewController:[[ContactServiceViewController alloc]init] animated:YES];
             break;
-        case 1:
-            [self.navigationController pushViewController:[[UserInstructionController alloc]init] animated:YES];
-            break;
-        case 2:
-            
-            [self.navigationController pushViewController:[[ContactServiceViewController alloc]init] animated:YES];
-            break;
-        case 3:
-            [self.navigationController pushViewController:[[SharePersonInfoViewController alloc]init] animated:YES];
-            break;
-        case 4:
-            [self.navigationController pushViewController:[[MyWalletViewController alloc]init] animated:YES];
-            break;
-        case 5:
-            [self.navigationController pushViewController:[[MyOrdersViewController alloc]init] animated:YES];
-            break;
-        default:
-            break;
+                
+        }
+    }
+    if (indexPath.section == 1) {
+         NSLog(@"%lu-------------------%lu",indexPath.section,indexPath.row);
+        switch (indexPath.row) {
+            case 0:
+                [self.navigationController pushViewController:[[SharePersonInfoViewController alloc]init] animated:YES];
+                break;
+            case 1:
+                [self.navigationController pushViewController:[[MyWalletViewController alloc]init] animated:YES];
+                break;
+            default:
+                break;
+        }
     }
     
+    if (indexPath.section == 2) {
+         NSLog(@"%lu-------------------%lu",indexPath.section,indexPath.row);
+        switch (indexPath.row) {
+            case 0:
+                [self.navigationController pushViewController:[[MyOrdersViewController alloc]init] animated:YES];
+                break;
+            default:
+                break;
+    }
+   
+        
+    
+    
+}
 }
 
 -(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath

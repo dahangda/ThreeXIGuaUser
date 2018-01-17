@@ -13,11 +13,12 @@
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
-    {
+    {  //订单编号字体
         self.backgroundColor = RGBCOLOR(245, 245, 245);
         UILabel *orderNumber = [[UILabel alloc]init];
         orderNumber.font = [UIFont systemFontOfSize:14];
         orderNumber.text = @"订单编号:";
+        orderNumber.textColor = [UIColor lightGrayColor];
         [self addSubview:orderNumber];
         [orderNumber mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(10);
@@ -35,7 +36,7 @@
         }];
         
         UIImageView *cellBackView = [[UIImageView alloc]init];
-        cellBackView.backgroundColor = [UIColor whiteColor];
+        cellBackView.backgroundColor = [UIColor grayColor];
         [self addSubview:cellBackView];
         [cellBackView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(0);
@@ -134,17 +135,18 @@
         _orderState.textAlignment = NSTextAlignmentCenter;
         [_rightImg addSubview:_orderState];
         _orderState.numberOfLines = 0;
-        _orderState.font = [UIFont systemFontOfSize:16];
+        _orderState.font = [UIFont systemFontOfSize:18];
         [_orderState mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
         }];
         
         UILabel *btmLabel = [[UILabel alloc]init];
-        btmLabel.text = @"合计:￥";
+        btmLabel.text = @"共一件商品 实付款:";
+        btmLabel.font = [UIFont systemFontOfSize:12];
         [self addSubview:btmLabel];
         [btmLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(cellBackView.bottom).offset(10);
-            make.right.equalTo(-70);
+            make.left.equalTo(10);
         }];
         
         _money = [[UILabel alloc]init];
@@ -155,33 +157,34 @@
         }];
         
         _deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_deleteBtn setTitle:@"删除订单" forState:UIControlStateNormal];
+        [_deleteBtn setTitle:@"" forState:UIControlStateNormal];
+        [_deleteBtn setImage:[UIImage imageNamed:@"wq"] forState:UIControlStateNormal];
         [_deleteBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         _deleteBtn.layer.masksToBounds = YES;
-        _deleteBtn.layer.cornerRadius = 5;
-        _deleteBtn.layer.borderColor = [UIColor orangeColor].CGColor;
-        _deleteBtn.layer.borderWidth = 1;
+//        _deleteBtn.layer.cornerRadius = 5;
+//        _deleteBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+//        _deleteBtn.layer.borderWidth = 1;
         [self addSubview:_deleteBtn];
         [_deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(btmLabel.bottom).offset(10);
+            make.top.equalTo(5);
             make.right.equalTo(-10);
-            make.width.equalTo(100);
-            make.height.equalTo(25);
+            make.width.equalTo(20);
+            make.height.equalTo(20);
         }];
         [_deleteBtn addTarget:self action:@selector(deleteOrder) forControlEvents:UIControlEventTouchUpInside];
         
         _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftBtn setTitle:@"退房" forState:UIControlStateNormal];
-        [_leftBtn setTitleColor:RGBCOLOR(27, 133, 20) forState:UIControlStateNormal];
+        [_leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _leftBtn.layer.masksToBounds = YES;
         _leftBtn.layer.cornerRadius = 5;
-        _leftBtn.layer.borderColor = RGBCOLOR(27, 133, 20).CGColor;
+        _leftBtn.layer.borderColor = [UIColor grayColor].CGColor;
         _leftBtn.layer.borderWidth = 1;
         [self addSubview:_leftBtn];
         [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(btmLabel.bottom).offset(10);
-            make.right.equalTo(_deleteBtn.left).offset(-10);
-            make.width.equalTo(100);
+            make.right.equalTo(-10);
+            make.top.equalTo(-100);
+            make.width.equalTo(60);
             make.height.equalTo(25);
         }];
         [_leftBtn addTarget:self action:@selector(checkOut) forControlEvents:UIControlEventTouchUpInside];
@@ -231,9 +234,17 @@
     _name.text = obj.UserName;
     _phone.text = obj.PhoneNumber;
     _orderTime.text = obj.OrderTime;
-    _money.text = [NSString stringWithFormat:@"%@",obj.GoodsUsePrice];
+    NSString *stringForColor = obj.GoodsUsePrice;
+   
+    NSString *string = [NSString stringWithFormat:@"￥%@",stringForColor];
+    NSMutableAttributedString *mAttStri = [[NSMutableAttributedString alloc] initWithString:string];
+    
+    [mAttStri addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length)];
+    _money.attributedText = mAttStri;
     _itemNumber.text = [NSString stringWithFormat:@"%@",obj.GoodsSNID];
-    _orderNumber.text = [NSString stringWithFormat:@"%@",obj.OrderPayOrderID];
+    NSArray *arry =  [ obj.OrderPayOrderID componentsSeparatedByString:@"_" ];
+    _orderNumber.text = [NSString stringWithFormat:@"  %@",arry.lastObject];
+     _orderNumber.textColor = [UIColor lightGrayColor];
     _states = [NSString stringWithFormat:@"%@",obj.Status];
     if ([_states  isEqual: @"8"])
     {

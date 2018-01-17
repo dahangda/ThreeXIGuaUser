@@ -112,7 +112,7 @@
     
     _getNumberBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _getNumberBtn.backgroundColor = RGBCOLOR(66, 165, 234);
-    _getNumberBtn.titleLabel.font = [UIFont systemFontOfSize:16.0];
+    _getNumberBtn.titleLabel.font = [UIFont systemFontOfSize:14.0];
     _getNumberBtn.layer.masksToBounds = YES;
     _getNumberBtn.layer.cornerRadius = 5;
     [_getNumberBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
@@ -241,8 +241,8 @@
     if (_time != 0)
     {
         _time--;
-        [_getNumberBtn setTitle:[NSString stringWithFormat:@"%d",_time] forState:UIControlStateNormal];
-        _getNumberBtn.backgroundColor = RGBCOLOR(242, 242, 242);
+        [_getNumberBtn setTitle:[NSString stringWithFormat:@"%d(s)",_time] forState:UIControlStateNormal];
+        _getNumberBtn.backgroundColor = RGBCOLOR(136, 206, 233);
         _getNumberBtn.userInteractionEnabled = NO;
     }
     else
@@ -252,7 +252,7 @@
         _getNumberBtn.backgroundColor = RGBCOLOR(66, 165, 234);
         [_timer invalidate];  // 从运行循环中移除， 对运行循环的引用进行一次 release
         _timer = nil;
-        _time = 60;
+        _time = 30;
     }
     
 }

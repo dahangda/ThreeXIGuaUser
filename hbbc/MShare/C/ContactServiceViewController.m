@@ -38,21 +38,27 @@
     _textView.textColor = [UIColor grayColor];
     self.textView.delegate = self;
     [self.view addSubview:_textView];
+    _textView.layer.cornerRadius = 5;
     [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(70);
-        make.left.equalTo(10);
-        make.right.equalTo(-10);
+        make.top.equalTo(80);
+        make.left.equalTo(15);
+        make.right.equalTo(-15);
         make.height.equalTo(150);
     }];
+    
     
     _placeholderLabel = [[UILabel alloc]init];
     _placeholderLabel.text = @" 请输入您对我们的意见(请输入至少10个字)";
     _placeholderLabel.textColor = [UIColor grayColor];
-    _placeholderLabel.font = [UIFont systemFontOfSize:16];
+    _placeholderLabel.font = [UIFont systemFontOfSize:14];
+    _placeholderLabel.numberOfLines = 0;
+    _placeholderLabel.textAlignment = NSTextAlignmentCenter;
+    
     [_textView addSubview:_placeholderLabel];
     [_placeholderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(0);
-        make.width.equalTo(SCREEN_WIDTH);
+        make.top.equalTo(10);
+        make.left.equalTo(0);
+        make.right.equalTo(0);
     }];
     
     
@@ -67,7 +73,7 @@
     [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(10);
         make.right.equalTo(-10);
-        make.top.equalTo(_textView.bottom).offset(60);
+        make.top.equalTo(_textView.bottom).offset(10);
         make.height.equalTo(50);
     }];
     [_btn addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];

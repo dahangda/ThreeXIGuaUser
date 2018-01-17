@@ -70,8 +70,6 @@
 		201829E91F50108800BF6150 /* myNews.png in Resources */ = {isa = PBXBuildFile; fileRef = 201829E81F50108800BF6150 /* myNews.png */; };
 		201829ED1F5026D400BF6150 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 201829EC1F5026D400BF6150 /* camera.png */; };
 		201829EF1F50280600BF6150 /* introLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 201829EE1F50280600BF6150 /* introLabel.png */; };
-		201C28941F622FCF00669B20 /* 共享挖掘机512（共享端）.png in Resources */ = {isa = PBXBuildFile; fileRef = 201C28931F622FCF00669B20 /* 共享挖掘机512（共享端）.png */; };
-		201C28961F622FD300669B20 /* 共享挖掘机1024（共享端）.png in Resources */ = {isa = PBXBuildFile; fileRef = 201C28951F622FD300669B20 /* 共享挖掘机1024（共享端）.png */; };
 		201C28991F627B9300669B20 /* Demo3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 201C28981F627B9300669B20 /* Demo3ViewController.m */; };
 		201DCBA81F908E7F00A8FBAF /* 充值协议.png in Resources */ = {isa = PBXBuildFile; fileRef = 201DCBA71F908E7F00A8FBAF /* 充值协议.png */; };
 		201DCBAA1F908E8900A8FBAF /* 用户协议.png in Resources */ = {isa = PBXBuildFile; fileRef = 201DCBA91F908E8900A8FBAF /* 用户协议.png */; };
@@ -339,6 +337,9 @@
 		20FD35131F1CCF51008F55CF /* ShareCodeToOpenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD35111F1CCF51008F55CF /* ShareCodeToOpenViewController.m */; };
 		20FD35141F1CCF51008F55CF /* ShareCodeToOpenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FD35121F1CCF51008F55CF /* ShareCodeToOpenViewController.xib */; };
 		20FD35221F1CE8EC008F55CF /* HBManalLockController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20FD351F1F1CE8EC008F55CF /* HBManalLockController.m */; };
+		E30B2CBB200F28B100B5A36B /* AbourtUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CBA200F28B100B5A36B /* AbourtUsView.xib */; };
+		E30B2CBE200F28CA00B5A36B /* AbourtUsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30B2CBD200F28CA00B5A36B /* AbourtUsView.m */; };
+		E30B2CC0200F5FBD00B5A36B /* wq.png in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CBF200F5FBD00B5A36B /* wq.png */; };
 		E317364B1DB74CD000101294 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E317364A1DB74CD000101294 /* main.m */; };
 		E31736541DB74CD100101294 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31736521DB74CD100101294 /* Main.storyboard */; };
 		E31736561DB74CD100101294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31736551DB74CD100101294 /* Assets.xcassets */; };
@@ -484,8 +485,6 @@
 		201829E81F50108800BF6150 /* myNews.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myNews.png; sourceTree = "<group>"; };
 		201829EC1F5026D400BF6150 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		201829EE1F50280600BF6150 /* introLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = introLabel.png; sourceTree = "<group>"; };
-		201C28931F622FCF00669B20 /* 共享挖掘机512（共享端）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "共享挖掘机512（共享端）.png"; sourceTree = "<group>"; };
-		201C28951F622FD300669B20 /* 共享挖掘机1024（共享端）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "共享挖掘机1024（共享端）.png"; sourceTree = "<group>"; };
 		201C28971F627B9300669B20 /* Demo3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo3ViewController.h; sourceTree = "<group>"; };
 		201C28981F627B9300669B20 /* Demo3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo3ViewController.m; sourceTree = "<group>"; };
 		201DCBA71F908E7F00A8FBAF /* 充值协议.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "充值协议.png"; sourceTree = "<group>"; };
@@ -984,6 +983,10 @@
 		20FD35121F1CCF51008F55CF /* ShareCodeToOpenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCodeToOpenViewController.xib; sourceTree = "<group>"; };
 		20FD351E1F1CE8EC008F55CF /* HBManalLockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBManalLockController.h; sourceTree = "<group>"; };
 		20FD351F1F1CE8EC008F55CF /* HBManalLockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBManalLockController.m; sourceTree = "<group>"; };
+		E30B2CBA200F28B100B5A36B /* AbourtUsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AbourtUsView.xib; sourceTree = "<group>"; };
+		E30B2CBC200F28CA00B5A36B /* AbourtUsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbourtUsView.h; sourceTree = "<group>"; };
+		E30B2CBD200F28CA00B5A36B /* AbourtUsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbourtUsView.m; sourceTree = "<group>"; };
+		E30B2CBF200F5FBD00B5A36B /* wq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wq.png; sourceTree = "<group>"; };
 		E31736461DB74CD000101294 /* hbbciphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hbbciphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E317364A1DB74CD000101294 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E31736531DB74CD100101294 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1170,6 +1173,7 @@
 		20020A461FB57A0000B17F51 /* 切图 */ = {
 			isa = PBXGroup;
 			children = (
+				E30B2CBF200F5FBD00B5A36B /* wq.png */,
 				20020A471FB57A0000B17F51 /* 1.png */,
 				20020A481FB57A0000B17F51 /* caise4.png */,
 				20020A491FB57A0000B17F51 /* caise5.png */,
@@ -1854,6 +1858,9 @@
 				202B3E251F53EEC500D77533 /* SharePersonInforView.m */,
 				202B3E211F53C30100D77533 /* SharePersonInfoModel.h */,
 				202B3E221F53C30100D77533 /* SharePersonInfoModel.m */,
+				E30B2CBA200F28B100B5A36B /* AbourtUsView.xib */,
+				E30B2CBC200F28CA00B5A36B /* AbourtUsView.h */,
+				E30B2CBD200F28CA00B5A36B /* AbourtUsView.m */,
 			);
 			name = "关于我们";
 			sourceTree = "<group>";
@@ -2087,8 +2094,6 @@
 				203DFFDF1F6A601900B03CB8 /* gray_blue_circle.png */,
 				203DFFE31F6A60A500B03CB8 /* greenPay_circle.png */,
 				203DFFE01F6A601900B03CB8 /* gray_circle.png */,
-				201C28931F622FCF00669B20 /* 共享挖掘机512（共享端）.png */,
-				201C28951F622FD300669B20 /* 共享挖掘机1024（共享端）.png */,
 				203DFFD11F6A5F9300B03CB8 /* sharer_yellow_circle.png */,
 				203DFFD21F6A5F9300B03CB8 /* sharer_pink_circle.png */,
 				203DFFD31F6A5F9300B03CB8 /* sharer_light_blue_circle.png */,
@@ -2693,6 +2698,7 @@
 				20A53AF21F565B5D00C9CCD2 /* shouyi.png in Resources */,
 				20020A901FB57A0000B17F51 /* caise1.png in Resources */,
 				20F952061F99A8E900CE1BC1 /* 余额.png in Resources */,
+				E30B2CC0200F5FBD00B5A36B /* wq.png in Resources */,
 				20020A731FB57A0000B17F51 /* theorderBtn.png in Resources */,
 				20020A891FB57A0000B17F51 /* 35.png in Resources */,
 				204B1EDC1F1E3A2C0067FB49 /* shareExcavater.png in Resources */,
@@ -2724,6 +2730,7 @@
 				203DFFDE1F6A5F9300B03CB8 /* sharer__cyan_circle.png in Resources */,
 				205F3FA01F179F770042FE43 /* mshare_position.png in Resources */,
 				20020A8E1FB57A0000B17F51 /* 5.png in Resources */,
+				E30B2CBB200F28B100B5A36B /* AbourtUsView.xib in Resources */,
 				20F9520B1F99A8E900CE1BC1 /* 向上箭头.png in Resources */,
 				20E149631F14817F007F8C2E /* coding.png in Resources */,
 				205F3FA21F179F770042FE43 /* mshare_position_normal.png in Resources */,
@@ -2753,7 +2760,6 @@
 				201829CF1F4FCBF000BF6150 /* banner.png in Resources */,
 				20A53AF41F565B6000C9CCD2 /* usePrice.png in Resources */,
 				20DC06EC1F3D4549004AFDB6 /* mshare_system_message_selected.png in Resources */,
-				201C28941F622FCF00669B20 /* 共享挖掘机512（共享端）.png in Resources */,
 				205F3F7A1F173B2B0042FE43 /* header@2x的副本.jpg in Resources */,
 				204E159B1FA8A1FB00AEB2F3 /* 2B21628707ED00DFD8817C3235A518BE.jpg in Resources */,
 				20F9520A1F99A8E900CE1BC1 /* 向下箭头.png in Resources */,
@@ -2780,7 +2786,6 @@
 				203DFFDB1F6A5F9300B03CB8 /* sharer_orange_circle.png in Resources */,
 				20020A6E1FB57A0000B17F51 /* caise4.png in Resources */,
 				205F3FA81F179F770042FE43 /* mshare_scan_torch.png in Resources */,
-				201C28961F622FD300669B20 /* 共享挖掘机1024（共享端）.png in Resources */,
 				200B54261FAAFD3500FF74E6 /* 986291AACF2E8BED6F7E00241278372D.png in Resources */,
 				20DEF5D71F9F0C340008AD9D /* HXWeiboPhotoPicker.bundle in Resources */,
 				20226E1E1FA1EB230071811E /* pick_bg@2x.png in Resources */,
@@ -2929,6 +2934,7 @@
 				20F951E41F9999FA00CE1BC1 /* BillTableViewCell.m in Sources */,
 				201DCBC01F9090F200A8FBAF /* DCPagerConsts.m in Sources */,
 				20A53AFC1F5692A500C9CCD2 /* MyOrderTableViewCell.m in Sources */,
+				E30B2CBE200F28CA00B5A36B /* AbourtUsView.m in Sources */,
 				E342DE111DC70C4F009F13E2 /* UIImage+Tint.m in Sources */,
 				202269891F46C8F600D8FC84 /* RSADataVerifier.m in Sources */,
 				20FD35221F1CE8EC008F55CF /* HBManalLockController.m in Sources */,
@@ -3181,7 +3187,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/hbbc/Library/Alipay\"";
 				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = hbbc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3217,7 +3223,7 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/hbbc/Library/Alipay\"";
 				IBSC_FLATTEN_NIBS = YES;
 				INFOPLIST_FILE = hbbc/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

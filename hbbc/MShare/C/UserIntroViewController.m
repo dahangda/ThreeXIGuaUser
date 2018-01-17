@@ -59,7 +59,7 @@
     _aTableView.tableFooterView = [[UIView alloc] initWithFrame: CGRectZero];
     [self.view addSubview:_aTableView];
     [_aTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(64);
+        make.top.equalTo(74);
         make.left.equalTo(0);
         make.width.equalTo(SCREEN_WIDTH);
         make.height.equalTo(132);

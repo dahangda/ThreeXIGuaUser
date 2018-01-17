@@ -70,7 +70,7 @@
 #pragma mark - 添加所有子控制器
 - (void)setUpAllChildViewController
 {
-    NSArray *titles = @[@"全部订单",@"预定订单",@"未完成订单",@"已完成订单"];
+    NSArray *titles = @[@"全部",@"预定",@"未完成",@"已完成"];
     for (NSInteger i = 0; i < titles.count; i++) {
         UIViewController *vc = [UIViewController new];
         vc.title = titles[i];
@@ -178,109 +178,7 @@
          DHErrorLog(error);
      }];
 }
-    
-//    // 创建队列组，可以使多个网络请求异步执行，执行完之后再进行操作
-//    dispatch_group_t group = dispatch_group_create();
-//    //创建全局队列
-//    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-//
-//    dispatch_group_async(group, queue, ^{
-//
-//
-//        //创建dispatch_semaphore_t对象
-//        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-//
-//        NSDictionary *parameters = @{
-//                                     @"ECID":ECID,
-//                                     @"PhoneNumber":PhoneNum,
-//                                     @"AppType":@"2",
-//@"AppID":APPID
-//                                     };
-//        [[NetworkSingleton shareManager] httpRequest:parameters url:MYORDERS success:^(id responseBody){
-//            DHResponseBodyLog(responseBody);
-//            // 请求成功发送信号量(+1)
-//            dispatch_semaphore_signal(semaphore);
-//            self.orderArr = [responseBody objectForKey:@"OrderList"];
-//            self.amodelArr = [AssignToObject customModel:@"MyOrderModel" ToArray:_orderArr];
-//            [_aTableView reloadData];
-//
-//        } failed:^(NSError *error)
-//         {
-//             DHErrorLog(error);
-//             // 失败也请求成功发送信号量(+1)
-//             dispatch_semaphore_signal(semaphore);
-//         }];
-//        //信号量减1，如果>0，则向下执行，否则等待
-//        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-//
-//    });
-//    dispatch_group_async(group, queue, ^{
-//
-//
-//        //创建dispatch_semaphore_t对象
-//        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-//
-//        NSDictionary *parameters = @{
-//                                     @"ECID":ECID,
-//                                     @"PhoneNumber":PhoneNum,
-//                                     @"AppType":@"2",
-//@"AppID":APPID
-//                                     };
-//        [[NetworkSingleton shareManager] httpRequest:parameters url:MYORDERS success:^(id responseBody){
-//            DHResponseBodyLog(responseBody);
-//            // 请求成功发送信号量(+1)
-//            //            dispatch_semaphore_signal(semaphore);
-//            self.orderArr = [responseBody objectForKey:@"OrderList"];
-//            self.amodelArr = [AssignToObject customModel:@"MyOrderModel" ToArray:_orderArr];
-//        } failed:^(NSError *error)
-//         {
-//             DHErrorLog(error);
-//             // 失败也请求成功发送信号量(+1)
-//             //             dispatch_semaphore_signal(semaphore);
-//         }];
-//        //信号量减1，如果>0，则向下执行，否则等待
-//        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-//
-//    });
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        //        [self.navigationController popViewControllerAnimated:YES];
-        // 当所有队列执行完成之后返回主线程进行界面上的修改
-//        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-            //                    self.aTableView.backgroundColor = RGBCOLOR(245, 245, 245);
-            //                    self.bTableView.backgroundColor = RGBCOLOR(245, 245, 245);
-            //                    self.cTableView.backgroundColor = RGBCOLOR(245, 245, 245);
-//        [self setUpAllChildViewController];
-//        [self setUpDisplayStyle:^(UIColor *__autoreleasing *titleScrollViewBgColor, UIColor *__autoreleasing *norColor, UIColor *__autoreleasing *selColor, UIColor *__autoreleasing *proColor, UIFont *__autoreleasing *titleFont, CGFloat *titleButtonWidth, BOOL *isShowPregressView, BOOL *isOpenStretch, BOOL *isOpenShade) {
-//            *titleFont = [UIFont systemFontOfSize:16];
-//            *selColor = RGB(66, 165, 234);
-//            /*
-//             以下BOOL值默认都为NO
-//             */
-//            *isShowPregressView = YES;                      //是否开启标题下部Pregress指示器
-//            *isOpenStretch = YES;                           //是否开启指示器拉伸效果
-//            *isOpenShade = YES;                             //是否开启字体渐变
-//        }];
-//        });
-//    });
 
-    //    NSDictionary *parameters = @{
-    //                                 @"ECID":ECID,
-    //                                 @"PhoneNumber":SHAREPhoneNum,
-//                                 @"AppType":@"1",
-//@"AppID":APPID
-    //                                 };
-    //    [[NetworkSingleton shareManager] httpRequest:parameters url:MYORDERS success:^(id responseBody){
-    //        DHResponseBodyLog(responseBody);
-    //        self.orderArr = [responseBody objectForKey:@"OrderList"];
-    //        self.amodelArr = [AssignToObject customModel:@"MyOrderModel" ToArray:_orderArr];
-    //        self.aTableView.backgroundColor = RGBCOLOR(245, 245, 245);
-    //        [self setUpAllChildViewController];
-    //    } failed:^(NSError *error)
-    //     {
-    //         DHErrorLog(error);
-    //     }];
-    
-//}
 
 -(NSArray *)aorderArr
 {
@@ -559,7 +457,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 124;
+    return 60;
 }
 
 -(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath

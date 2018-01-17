@@ -28,10 +28,11 @@
             make.width.equalTo(136);
             make.height.equalTo(124);
         }];
-        
+    
         
         UILabel *logoLabel = [[UILabel alloc]init];
         logoLabel.text = @"客户端";
+        
         logoLabel.font = [UIFont systemFontOfSize:25];
         [self addSubview:logoLabel];
         [logoLabel mas_makeConstraints:^(MASConstraintMaker *make) {

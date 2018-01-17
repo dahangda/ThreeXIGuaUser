@@ -27,10 +27,6 @@
 /**测试服务器根路径*/
 #define SEVERROOTPATHONLINE @"http://192.168.1.86/sdsepi/"
 
-/**服务器根路径*/
-//#define SEVERROOTPATH @"http://192.168.1.176/pgynpi/mapp."
-//#define SEVERROOTPATH @"http://192.168.1.162/pgynpi/mapp."
-
 
 
 //--------------------------设置------------------------------

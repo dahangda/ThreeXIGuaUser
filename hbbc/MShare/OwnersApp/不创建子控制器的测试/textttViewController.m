@@ -53,7 +53,7 @@
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithCustomView:btnLeft];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245);
-    _titleArr = @[@"全部订单",@"预定订单",@"未完成订单",@"已完成订单"];
+    _titleArr = @[@"全部",@"预定",@"未完成",@"已完成"];
     [self setupChildViewController];
     _topTitleView = [SGTopTitleView topTitleViewWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 36)];
     _topTitleView.scrollTitleArr = [NSArray arrayWithArray:_titleArr];
@@ -441,7 +441,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 124;
+    return 100;
 }
 
 -(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath

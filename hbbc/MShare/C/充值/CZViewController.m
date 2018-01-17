@@ -161,7 +161,7 @@
     }];
     
     UIImageView *midLineView = [[UIImageView alloc]init];
-    midLineView.backgroundColor = RGBCOLOR(245, 245, 245);
+    midLineView.backgroundColor = RGBCOLOR(254, 254, 254);
     [self.view addSubview:midLineView];
     [midLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(0);
@@ -209,7 +209,7 @@
     }];
     
     _lineView = [[UIImageView alloc]init];
-    _lineView.backgroundColor = RGBCOLOR(245, 245, 245);
+    _lineView.backgroundColor = RGBCOLOR(254, 254, 254);
     [self.view addSubview:_lineView];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(0);
@@ -255,7 +255,7 @@
     }];
     
     _lineView = [[UIImageView alloc]init];
-    _lineView.backgroundColor = RGBCOLOR(245, 245, 245);
+    _lineView.backgroundColor = RGBCOLOR(254, 254, 254);
     [self.view addSubview:_lineView];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(0);
