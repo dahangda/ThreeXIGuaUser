@@ -48,7 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = RGBCOLOR(92, 177, 236);
     [self initUI];
     [self json];
     
@@ -67,7 +67,12 @@
         _nameLabel.text = responseBody[@"UserName"];
         _balance = [NSString stringWithFormat:@"%@",responseBody[@"UserBalance"]];
         MyWalletTableViewCell *cell = [_aTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-        cell.rightLabel.text = [_balance stringByAppendingString:@"元"];
+       NSString *string = [NSString stringWithFormat:@"%@元",_balance];
+        NSMutableAttributedString *mAttStri = [[NSMutableAttributedString alloc] initWithString:string];
+
+        [mAttStri addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, string.length-1)];
+        cell.rightLabel.attributedText = mAttStri;
+        
         _depositBalance = [NSString stringWithFormat:@"%@",responseBody[@"DepositBalance"]];
         
         
@@ -82,26 +87,29 @@
     _labelArray = [NSArray arrayWithObjects:@"账单",@"余额",@"充值",@"提现",@"退还押金",nil];
     _imgArray = [NSArray arrayWithObjects:@"账单",@"余额",@"充值",@"提现",@"退押金",nil];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _aTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+    _aTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStyleGrouped];
+//    _aTableView.backgroundColor = [UIColor lightGrayColor];
     _aTableView.dataSource = self;
     _aTableView.delegate = self;
     _aTableView.scrollEnabled = NO;
     [_aTableView setSeparatorInset:UIEdgeInsetsZero];
     [_aTableView setLayoutMargins:UIEdgeInsetsZero];
     [_aTableView registerClass:[MyWalletTableViewCell class] forCellReuseIdentifier:@"TableViewCell"];
-    
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 180)];
-    headerView.backgroundColor = RGBCOLOR(92, 177, 236);
+#pragma mark ********************table头
+
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
+    headerView.backgroundColor = [UIColor whiteColor];
     
     
     _aTableView.tableHeaderView = headerView;
-    
+    self.aTableView.sectionHeaderHeight = 10;
+    self.aTableView.sectionFooterHeight = 0;
     [self.view addSubview:_aTableView];
     [_aTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(0);
+        make.top.equalTo(64);
         make.left.equalTo(0);
         make.width.equalTo(SCREEN_WIDTH);
-        make.height.equalTo(400);
+        make.height.equalTo(800);
     }];
     
     for (int i = 0; i < 5; i++)
@@ -119,29 +127,32 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(30);
     }];
-    
+#pragma mark ********************头像
+
     _imgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_imgBtn setImage:[UIImage imageNamed:@"头像"] forState:UIControlStateNormal];
     [self.view addSubview:_imgBtn];
     [_imgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(20);
-        make.top.equalTo(titleLabel.bottom).offset(30);
-        make.width.height.equalTo(84);
+        make.top.equalTo(titleLabel.bottom).offset(20);
+        make.width.height.equalTo(70);
     }];
-    _imgBtn.layer.cornerRadius = 42;
+    _imgBtn.layer.cornerRadius = 35;
     _imgBtn.layer.masksToBounds = YES;
-    
+#pragma mark ********************昵称
+
     _nameLabel = [[UILabel alloc]init];
     _nameLabel.text = @"***";
-    _nameLabel.textColor = [UIColor whiteColor];
-    _nameLabel.font = [UIFont systemFontOfSize:20];
+    _nameLabel.textColor = [UIColor blackColor];
+    _nameLabel.font = [UIFont systemFontOfSize:16];
     [self.view addSubview:_nameLabel];
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_imgBtn.right).offset(15);
-        make.top.equalTo(_imgBtn.top).offset(20);
+        make.top.equalTo(_imgBtn.top).offset(10);
     }];
     
-    
+#pragma mark ********************电话号码
+
     UILabel *phoneLabel = [[UILabel alloc]init];
     NSString *phoneNum = PhoneNum;
     if ([phoneNum isEqualToString:@""] || phoneNum == nil)
@@ -153,7 +164,7 @@
         phoneLabel.text = phoneNum;
     }
     
-    phoneLabel.textColor = [UIColor whiteColor];
+    phoneLabel.textColor = [UIColor grayColor];
     phoneLabel.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:phoneLabel];
     [phoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -161,7 +172,8 @@
         make.top.equalTo(_nameLabel.bottom).offset(2);
     }];
     
-    
+#pragma mark ********************返回按钮
+ 
     UIImageView *imgLeft = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, 25, 25)];
     [imgLeft setImage:[UIImage imageNamed:@"sharenavigation_back"]];
     UIButton *btnLeft =[[UIButton alloc]initWithFrame:CGRectMake(0, 30, 80, 25)];
@@ -181,56 +193,162 @@
 
 
 #pragma mark - UITableViewDataSource
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *headerview = nil;
+    headerview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
+    return headerview;
+
+}
+
+
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    NSLog(@"%lu",section);
+    NSUInteger section_number = 0;
+    if (section == 0) {
+        section_number = 2;
+    }
+    else if (section == 1){
+        section_number = 2;
+        
+    }
+    else if(section == 2){
+        
+        section_number = 1;
+    }
+    return section_number ;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
+    
+    return 3;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    MyWalletTableViewCell *cell = nil;
-    MyWalletModel *model = _arr[indexPath.row];
-    cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell"];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell  setValue:model];
-    if (indexPath.row == 1)
-    {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.rightLabel.text = @"0元";
+{       MyWalletTableViewCell *cell = nil;
+    
+    NSLog(@"%lu-------------------%lu",indexPath.section,indexPath.row);
+    if (indexPath.section == 0) {
+        MyWalletModel *model = _arr[indexPath.row];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        if (indexPath.row == 1)
+                {
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                    cell.rightLabel.text = @"0元";
+                }
+        [cell  setValue:model];
+        
     }
+    else if (indexPath.section == 1) {
+        MyWalletModel *model = _arr[indexPath.row + 2];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell  setValue:model];
+        
+    }
+    else if (indexPath.section == 2){
+        
+        MyWalletModel *model = _arr[indexPath.row + 4];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"TableViewCell"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell  setValue:model];
+        
+    }
+    
     return  cell;
+
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.row) {
-        case 0:
-            [self.navigationController pushViewController:[[TheBillViewController alloc]init] animated:YES];
-            break;
-        case 1:
-            break;
-        case 2:
-            [self.navigationController pushViewController:[[RechargeViewController alloc]init] animated:YES];
-            break;
-        case 3:
-        {
-            CashViewController *cvc = [[CashViewController alloc]init];
-            cvc.balance = _balance;
-            [self.navigationController pushViewController:cvc animated:YES];
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+                [self.navigationController pushViewController:[[TheBillViewController alloc]init] animated:YES];
+                break;
+            case 1:
+                
+                break;
+            default:
+                break;
+                
         }
-            break;
-        case 4:
-        {
-            GetChargeViewController *cvc = [[GetChargeViewController alloc]init];
-            cvc.depositBalance = _depositBalance;
-            [self.navigationController pushViewController:cvc animated:YES];
-        }
-            break;
-        default:
-            break;
     }
+    if (indexPath.section == 1) {
+        NSLog(@"%lu-------------------%lu",indexPath.section,indexPath.row);
+        switch (indexPath.row) {
+            case 0:
+            [self.navigationController pushViewController:[[RechargeViewController alloc]init] animated:YES];
+                break;
+            case 1:
+                {
+                                CashViewController *cvc = [[CashViewController alloc]init];
+                                cvc.balance = _balance;
+                                [self.navigationController pushViewController:cvc animated:YES];
+                            }
+                break;
+            default:
+                break;
+        }
+    }
+    
+    if (indexPath.section == 2) {
+        NSLog(@"%lu-------------------%lu",indexPath.section,indexPath.row);
+        switch (indexPath.row) {
+            case 0:
+            {
+                            GetChargeViewController *cvc = [[GetChargeViewController alloc]init];
+                            cvc.depositBalance = _depositBalance;
+                            [self.navigationController pushViewController:cvc animated:YES];
+                        }
+                break;
+            default:
+                break;
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+//    switch (indexPath.row) {
+//        case 0:
+//            [self.navigationController pushViewController:[[TheBillViewController alloc]init] animated:YES];
+//            break;
+//        case 1:
+//            break;
+//        case 2:
+//            [self.navigationController pushViewController:[[RechargeViewController alloc]init] animated:YES];
+//            break;
+//        case 3:
+//        {
+//            CashViewController *cvc = [[CashViewController alloc]init];
+//            cvc.balance = _balance;
+//            [self.navigationController pushViewController:cvc animated:YES];
+//        }
+//            break;
+//        case 4:
+//        {
+//            GetChargeViewController *cvc = [[GetChargeViewController alloc]init];
+//            cvc.depositBalance = _depositBalance;
+//            [self.navigationController pushViewController:cvc animated:YES];
+//        }
+//            break;
+//        default:
+//            break;
+//    }
     
 }
 

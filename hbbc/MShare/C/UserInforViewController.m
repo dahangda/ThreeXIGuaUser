@@ -111,9 +111,9 @@
     [_imgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(imgLeft.mas_centerX).offset(20);
         make.top.equalTo(titleLabel.bottom).offset(30);
-        make.width.height.equalTo(84);
+        make.width.height.equalTo(70);
     }];
-    _imgBtn.layer.cornerRadius = 42;
+    _imgBtn.layer.cornerRadius = 35;
     _imgBtn.layer.masksToBounds = YES;
     [_imgBtn addTarget:self action:@selector(changePhoto) forControlEvents:UIControlEventTouchUpInside];
  #pragma mark ********************头像lable

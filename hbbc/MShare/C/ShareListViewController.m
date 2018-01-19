@@ -80,6 +80,12 @@
 
 @implementation ShareListViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+       return UIStatusBarStyleLightContent;
+   // return UIStatusBarStyleDefault;
+}
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

@@ -89,6 +89,7 @@
         _aTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, 0, 0) style:UITableViewStylePlain];
         _aTableView.delegate = self;
         _aTableView.dataSource = self;
+        _aTableView.backgroundColor = RGBCOLOR(233, 233, 233);
         [_aTableView registerClass:[MyOrderTableViewCell class] forCellReuseIdentifier:@"TableViewCell"];
         [_aTableView setSeparatorInset:UIEdgeInsetsZero];
         [_aTableView setLayoutMargins:UIEdgeInsetsZero];
@@ -196,7 +197,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 180;
+    return 165;
 }
 
 -(void)tableView:(UITableView* )tableView willDisplayCell:(UITableViewCell* )cell forRowAtIndexPath:(NSIndexPath *)indexPath

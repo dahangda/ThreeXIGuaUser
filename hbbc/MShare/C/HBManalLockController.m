@@ -52,7 +52,7 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(80);
         make.width.equalTo(SCREEN_WIDTH - 100);
-        make.height.equalTo(127);
+        make.height.equalTo(100);
     }];
 
 
@@ -65,7 +65,7 @@
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
         make.top.equalTo(_imgView.bottom).offset(50);
-        make.width.equalTo(SCREEN_WIDTH - 200);
+        make.width.equalTo(SCREEN_WIDTH-200);
         make.height.equalTo(50);
     }];
     
@@ -76,8 +76,8 @@
     [_topLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_textField.top).offset(-5);
         make.height.equalTo(2);
-        make.left.equalTo(50);
-        make.right.equalTo(-50);
+        make.left.equalTo(20);
+        make.right.equalTo(-20);
     }];
     
     _botmLineView = [[UIImageView alloc]init];
@@ -86,8 +86,8 @@
     [_botmLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_textField.bottom).offset(2);
         make.height.equalTo(2);
-        make.left.equalTo(50);
-        make.right.equalTo(-50);
+        make.left.equalTo(20);
+        make.right.equalTo(-20);
     }];
     
     _leftLineView = [[UIImageView alloc]init];
@@ -96,7 +96,7 @@
     [_leftLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_topLineView.bottom).offset(-1);
         make.width.equalTo(2);
-        make.left.equalTo(50);
+        make.left.equalTo(20);
         make.bottom.equalTo(_textField.bottom).offset(2);
     }];
     
@@ -106,7 +106,7 @@
     [_rightLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_topLineView.bottom).offset(-1);
         make.width.equalTo(2);
-        make.right.equalTo(-50);
+        make.right.equalTo(-20);
         make.bottom.equalTo(_textField.bottom).offset(2);
     }];
     
@@ -141,7 +141,7 @@
     [_btn addTarget:self action:@selector(queryBtOnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btn];
     [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_lightBtn.bottom).offset(30);
+        make.bottom.equalTo(self.view).offset(-20);
         make.left.equalTo(15);
         make.right.equalTo(-15);
         make.height.equalTo(50);

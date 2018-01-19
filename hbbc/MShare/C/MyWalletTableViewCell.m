@@ -35,6 +35,7 @@
         
         _rightLabel = [[UILabel alloc]init];
         _rightLabel.font = [UIFont systemFontOfSize:15];
+    
         [self addSubview:_rightLabel];
         [_rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(-20);

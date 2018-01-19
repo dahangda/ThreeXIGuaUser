@@ -54,13 +54,37 @@
 
 -(void)initUI
 {
+    UIView *congzhiView =[[UIView alloc]init];
+    congzhiView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:congzhiView];
+    [congzhiView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.right.equalTo(0);
+        make.top.equalTo(65);
+        make.height.equalTo(SCREEN_HEIGHT/3+20);
+    }];
+    
     UILabel *topLabel = [[UILabel alloc]init];
     topLabel.text = @"充值金额";
+    topLabel.textColor = RGBCOLOR(112, 113, 114);
+    
     [self.view addSubview:topLabel];
     [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(20);
-        make.top.equalTo(84);
+        make.top.equalTo(congzhiView.top).offset(10);
     }];
+    
+    UIView *line_View =[[UIView alloc]init];
+    line_View.backgroundColor = RGBCOLOR(231, 232, 233);
+    [self.view addSubview:line_View];
+    [line_View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.right.equalTo(0);
+        make.top.equalTo(topLabel.bottom).offset(5);
+        make.height.equalTo(1);
+    }];
+#pragma mark *******************充值btn
+
     NSArray *titleArr = @[@"充100元",@"充50元",@"充20元",@"充10元"];
     _money = @"100";
     _btnArr = [NSMutableArray arrayWithCapacity:1];
@@ -90,74 +114,83 @@
         [_btnArr addObject:_moneyBtn];
     }
     
+    UIView *line2_View =[[UIView alloc]init];
+    line2_View.backgroundColor = RGBCOLOR(231, 232, 233);
+    [self.view addSubview:line2_View];
+    [line2_View mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.right.equalTo(0);
+        make.top.equalTo(_moneyBtn.bottom).offset(20);
+        make.height.equalTo(1);
+    }];
+
+    
     UILabel *midLabel = [[UILabel alloc]init];
     midLabel.text = @"充值方式";
     [self.view addSubview:midLabel];
     [midLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(20);
-        make.top.equalTo(_moneyBtn.bottom).offset(30);
+        make.top.equalTo(congzhiView.bottom).offset(10);
     }];
     
-    UIImageView *lineView = [[UIImageView alloc]init];
-    lineView.backgroundColor = [UIColor grayColor];
+    UIView *lineView = [[UIView alloc]init];
+    lineView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:lineView];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(congzhiView.bottom).offset(40);
         make.left.right.equalTo(0);
-        make.height.equalTo(1);
-        make.top.equalTo(midLabel.bottom).offset(20);
+        make.height.equalTo(40);
+        
     }];
-    
+#pragma mark ********************winxin
+
     _wechatImg = [[UIImageView alloc]init];
     [_wechatImg setImage:[UIImage imageNamed:@"pay_wechat"]];
     [self.view addSubview:_wechatImg];
     [_wechatImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(lineView.bottom).offset(15);
+        make.top.equalTo(lineView.top).offset(10);
         make.left.equalTo(20);
-        make.width.height.equalTo(40);
+        make.width.height.equalTo(20);
     }];
     
     UILabel *wechatLabel = [[UILabel alloc]init];
     wechatLabel.text = @"微信";
+    wechatLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:wechatLabel];
     [wechatLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_wechatImg.mas_centerY);
-        make.left.equalTo(_wechatImg.right).offset(10);
+        make.left.equalTo(_wechatImg.right).offset(30);
     }];
     
-    UIImageView *midlineView = [[UIImageView alloc]init];
-    midlineView.backgroundColor = [UIColor grayColor];
+    UIView *midlineView = [[UIView alloc]init];
+    midlineView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:midlineView];
     [midlineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
-        make.height.equalTo(1);
-        make.top.equalTo(_wechatImg.bottom).offset(15);
+        make.height.equalTo(40);
+        make.top.equalTo(_wechatImg.bottom).offset(20);
     }];
-    
+#pragma mark ********************zhifubao
+
     _zhifubaoImg = [[UIImageView alloc]init];
     [_zhifubaoImg setImage:[UIImage imageNamed:@"pay_zhifubao"]];
     [self.view addSubview:_zhifubaoImg];
+    
     [_zhifubaoImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_wechatImg.bottom).offset(30);
         make.left.equalTo(20);
-        make.width.height.equalTo(40);
+        make.width.height.equalTo(20);
     }];
     
     UILabel *zhifubaoLabel = [[UILabel alloc]init];
     zhifubaoLabel.text = @"支付宝";
+     zhifubaoLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:zhifubaoLabel];
     [zhifubaoLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(_zhifubaoImg.mas_centerY);
-        make.left.equalTo(_zhifubaoImg.right).offset(10);
+        make.left.equalTo(_zhifubaoImg.right).offset(30);
     }];
     
-    UIImageView *btomlineView = [[UIImageView alloc]init];
-    btomlineView.backgroundColor = [UIColor grayColor];
-    [self.view addSubview:btomlineView];
-    [btomlineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(0);
-        make.height.equalTo(1);
-        make.top.equalTo(_zhifubaoImg.bottom).offset(15);
-    }];
     
     _wechat = [UIButton buttonWithType:UIButtonTypeCustom];
     [_wechat setImage:[UIImage imageNamed:@"gray_circle"] forState:UIControlStateNormal];
@@ -196,7 +229,7 @@
         make.left.equalTo(10);
         make.right.equalTo(-10);
         make.height.equalTo(50);
-        make.bottom.equalTo(-50);
+        make.bottom.equalTo(-30);
     }];
     [payBtn addTarget:self action:@selector(PayMoney) forControlEvents:UIControlEventTouchUpInside];
     
@@ -208,7 +241,7 @@
     [self.view addSubview:midLeftLabel];
     [midLeftLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(width);
-        make.top.equalTo(payBtn.bottom).offset(15);
+        make.bottom.equalTo(-10);
     }];
     
     UIButton *midRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];

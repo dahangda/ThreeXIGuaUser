@@ -34,6 +34,8 @@ typedef enum {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     [self startCreateUI];
    
     [self checkOnNetWorkingStatus];
@@ -42,6 +44,7 @@ typedef enum {
     [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
     [self registerRemoteNotification];
+
     
     return YES;
     

@@ -90,7 +90,7 @@
 {
     if(!_aTableView)
     {
-        _aTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, 0, 0) style:UITableViewStylePlain];
+        _aTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, 0, 0) style:UITableViewStyleGrouped];
         _aTableView.delegate = self;
         _aTableView.dataSource = self;
         [_aTableView registerClass:[TheBillTableViewCell class] forCellReuseIdentifier:@"TableViewCell"];
@@ -131,7 +131,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 55;
+    return 80;
 }
 
 

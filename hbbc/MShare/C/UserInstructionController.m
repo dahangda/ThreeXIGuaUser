@@ -31,12 +31,16 @@
 
 @implementation UserInstructionController
 
+#pragma mark ********************talbeview
 
 -(UITableView *)aTableView
 {
     if(!_aTableView)
     {
-        _aTableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+        _aTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, -50, SCREEN_WIDTH, 900) style:UITableViewStyleGrouped];
+        _aTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 10)];
+        
+        self.aTableView.sectionFooterHeight = 0;
         _aTableView.dataSource = self;
         _aTableView.delegate = self;
         [_aTableView setSeparatorInset:UIEdgeInsetsZero];
@@ -52,7 +56,7 @@
             make.top.equalTo(_rightLine.bottom);
             make.left.equalTo(0);
             make.width.equalTo(SCREEN_WIDTH);
-            make.height.equalTo(SCREEN_HEIGHT - 150);
+            make.height.equalTo(SCREEN_HEIGHT);
         }];
     }
     return _aTableView;
@@ -79,10 +83,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.view.backgroundColor = RGBCOLOR(246, 246, 246);
+  self.view.backgroundColor = RGBCOLOR(92, 177, 236);
     
-    _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
-    _headerView.backgroundColor = RGBCOLOR(92, 177, 236);
+    _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 40)];
+    _headerView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_headerView];
     
     UIImageView *imgLeft = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, 25, 25)];
@@ -101,7 +105,8 @@
         make.centerX.equalTo(self.view.mas_centerX);
         make.centerY.equalTo(btnLeft.mas_centerY);
     }];
-    
+#pragma mark ********************中间线
+
     _lineImg = [[UIImageView alloc]init];
     _lineImg.backgroundColor = RGBCOLOR(245, 245, 245);
     [self.view addSubview:_lineImg];
@@ -111,50 +116,55 @@
         make.width.equalTo(1);
         make.height.equalTo(30);
     }];
-    
+#pragma mark ********************左边按钮
+
     _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+   
     _leftBtn.selected = YES;
     [self.view addSubview:_leftBtn];
     [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(0);
         make.right.equalTo(_lineImg.left);
-        make.top.equalTo(titleLabel.bottom);
-        make.height.equalTo(90);
+        make.top.equalTo(titleLabel.bottom).offset(5);
+        make.height.equalTo(40);
     }];
     [_leftBtn addTarget:self  action:@selector(systemNews) forControlEvents:UIControlEventTouchUpInside];
-    
+#pragma mark ********************右边按钮
+
     _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:_rightBtn];
     [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_lineImg.right);
         make.right.equalTo(0);
-        make.top.equalTo(titleLabel.bottom);
-        make.height.equalTo(90);
+        make.top.equalTo(titleLabel.bottom).offset(5);
+        make.height.equalTo(40);
     }];
     [_rightBtn addTarget:self  action:@selector(businessNews) forControlEvents:UIControlEventTouchUpInside];
-    
+#pragma mark ********************左边图片
+
     _leftImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"mshare_system_message_selected"]];
     [self.view addSubview:_leftImg];
     [_leftImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.equalTo(28);
-        make.top.equalTo(80);
-        make.left.equalTo(SCREEN_WIDTH / 4);
+        make.height.width.equalTo(20);
+        make.top.equalTo(70);
+        make.left.equalTo(40);
     }];
     
-    
+ #pragma mark ********************左边lable
     _lefttitleLabel = [[UILabel alloc]init];
     _lefttitleLabel.text = @"系统通知";
     _lefttitleLabel.textAlignment = NSTextAlignmentCenter;
-    _lefttitleLabel.textColor = [UIColor whiteColor];
-    _lefttitleLabel.font = [UIFont systemFontOfSize:18];
+    _lefttitleLabel.textColor = RGBCOLOR(92, 177, 236);
+    _lefttitleLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:_lefttitleLabel];
     [_lefttitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_leftImg.bottom).offset(5);
-        make.centerX.equalTo(_leftImg.mas_centerX);
+        //make.top.equalTo(_leftImg.bottom).offset(5);
+        make.left.equalTo(_leftImg.right).offset(10);
+        make.centerY.equalTo(_leftImg.mas_centerY);
     }];
     
     _leftLine = [[UIImageView alloc]init];
-    _leftLine.backgroundColor = [UIColor yellowColor];
+    _leftLine.backgroundColor = RGBCOLOR(92, 177, 236);
     [self.view addSubview:_leftLine];
     [_leftLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_headerView.bottom);
@@ -162,28 +172,29 @@
         make.left.equalTo(0);
         make.right.equalTo(_lineImg.left);
     }];
-    
+#pragma mark ********************右边图片
+
     _rightImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"mshare_business_message_unselected"]];
     [self.view addSubview:_rightImg];
     [_rightImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.equalTo(28);
-        make.top.equalTo(80);
-        make.right.equalTo(-SCREEN_WIDTH / 4);
+        make.height.width.equalTo(20);
+        make.top.equalTo(70);
+        make.right.equalTo(- SCREEN_WIDTH / 4 - 30);
     }];
-    
+#pragma mark ********************右边lable
     _rightTitleLabel = [[UILabel alloc]init];
     _rightTitleLabel.text = @"业务通知";
     _rightTitleLabel.textAlignment = NSTextAlignmentCenter;
-    _rightTitleLabel.textColor = RGBCOLOR(215, 215, 215);
-    _rightTitleLabel.font = [UIFont systemFontOfSize:18];
+    _rightTitleLabel.textColor = [UIColor blackColor];
+    _rightTitleLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:_rightTitleLabel];
     [_rightTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_rightImg.bottom).offset(5);
-        make.centerX.equalTo(_rightImg.mas_centerX);
+        make.left.equalTo(_rightImg.right).offset(10);
+        make.centerY.equalTo(_rightImg.mas_centerY);
     }];
     
     _rightLine = [[UIImageView alloc]init];
-    _rightLine.backgroundColor = [UIColor yellowColor];
+    _rightLine.backgroundColor = RGBCOLOR(92, 177, 236);;
     [self.view addSubview:_rightLine];
     [_rightLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_headerView.bottom);
@@ -195,11 +206,7 @@
     
     [self ajson];
     
-//    UISwipeGestureRecognizer * panGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-//                                                                                                action:@selector(getAnother:)];
-//    panGestureRecognizer.cancelsTouchesInView = NO;
-//    [panGestureRecognizer setDirection:(UISwipeGestureRecognizerDirectionUp)];
-//    [_Cview addGestureRecognizer:panGestureRecognizer];
+
 }
 
 -(void)ajson
@@ -248,8 +255,8 @@
     _rightBtn.selected = NO;
     _leftImg.image = [UIImage imageNamed:@"mshare_system_message_selected"];
     _rightImg.image = [UIImage imageNamed:@"mshare_business_message_unselected"];
-    _lefttitleLabel.textColor = [UIColor whiteColor];
-    _rightTitleLabel.textColor = RGBCOLOR(215, 215, 215);
+    _lefttitleLabel.textColor = RGBCOLOR(92, 177, 236);
+    _rightTitleLabel.textColor = [UIColor grayColor];
     _leftLine.hidden = NO;
     _rightLine.hidden = YES;
     [self ajson];
@@ -261,8 +268,8 @@
     _leftBtn.selected = NO;
     _leftImg.image = [UIImage imageNamed:@"mshare_system_message_unselected"];
     _rightImg.image = [UIImage imageNamed:@"mshare_business_message_selected"];
-    _rightTitleLabel.textColor = [UIColor whiteColor];
-    _lefttitleLabel.textColor = RGBCOLOR(215, 215, 215);
+    _rightTitleLabel.textColor =  RGBCOLOR(92, 177, 236);;
+    _lefttitleLabel.textColor = [UIColor grayColor];
     _leftLine.hidden = YES;
     _rightLine.hidden = NO;
     [self bjson];
@@ -276,8 +283,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return 64;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

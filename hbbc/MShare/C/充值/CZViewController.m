@@ -217,7 +217,8 @@
         make.height.equalTo(1);
         make.top.equalTo(_zhifubaoBtn.bottom);
     }];
-    
+#pragma mark ********************weixin
+
     _weixinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:_weixinBtn];
     [_weixinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -233,12 +234,12 @@
     [weixinImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(10);
         make.left.equalTo(30);
-        make.width.height.equalTo(25);
+        make.width.height.equalTo(15);
     }];
     
     _weixinLabel = [[UILabel alloc]init];
     _weixinLabel.text = @"微信";
-    _weixinLabel.font = [UIFont systemFontOfSize:20.0];
+    _weixinLabel.font = [UIFont systemFontOfSize:18.0];
     [_weixinBtn addSubview:_weixinLabel];
     [_weixinLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weixinImg.right).offset(30);

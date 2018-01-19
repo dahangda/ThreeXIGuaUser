@@ -39,7 +39,7 @@
     [backBtn addSubview:backImg];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245);
-    _titleArr = @[@"订单支付",@"账户充值"];
+    _titleArr = @[@"支付订单",@"充值明细"];
     [self setupChildViewController];
     _topTitleView = [SGTopTitleView topTitleViewWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 36)];
     _topTitleView.scrollTitleArr = [NSArray arrayWithArray:_titleArr];

@@ -14,7 +14,17 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {  //订单编号字体
-        self.backgroundColor = RGBCOLOR(245, 245, 245);
+        UIView *lineView = [[UIView alloc] init];
+        lineView.backgroundColor = RGBCOLOR(243,244, 245);
+        [self addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(0);
+            make.left.equalTo(0);
+            make.right.equalTo(0);
+            make.height.equalTo(10);
+        }];
+        
+        self.backgroundColor =RGBCOLOR(254, 255, 255);
         UILabel *orderNumber = [[UILabel alloc]init];
         orderNumber.font = [UIFont systemFontOfSize:14];
         orderNumber.text = @"订单编号:";
@@ -36,7 +46,7 @@
         }];
         
         UIImageView *cellBackView = [[UIImageView alloc]init];
-        cellBackView.backgroundColor = [UIColor grayColor];
+        cellBackView.backgroundColor = RGBCOLOR(243,244, 245);
         [self addSubview:cellBackView];
         [cellBackView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(0);
@@ -142,7 +152,7 @@
         
         UILabel *btmLabel = [[UILabel alloc]init];
         btmLabel.text = @"共一件商品 实付款:";
-        btmLabel.font = [UIFont systemFontOfSize:12];
+        btmLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:btmLabel];
         [btmLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(cellBackView.bottom).offset(10);
@@ -168,13 +178,14 @@
         [_deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(5);
             make.right.equalTo(-10);
-            make.width.equalTo(20);
+            make.width.equalTo(18);
             make.height.equalTo(20);
         }];
         [_deleteBtn addTarget:self action:@selector(deleteOrder) forControlEvents:UIControlEventTouchUpInside];
         
         _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_leftBtn setTitle:@"退房" forState:UIControlStateNormal];
+        _leftBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [_leftBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         _leftBtn.layer.masksToBounds = YES;
         _leftBtn.layer.cornerRadius = 5;
@@ -183,7 +194,7 @@
         [self addSubview:_leftBtn];
         [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(-10);
-            make.top.equalTo(-100);
+            make.top.equalTo(cellBackView.bottom).offset(10);
             make.width.equalTo(60);
             make.height.equalTo(25);
         }];

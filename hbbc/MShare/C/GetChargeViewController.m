@@ -30,20 +30,20 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.view.backgroundColor = RGBCOLOR(245, 245, 245);
-    self.title = @"退还押金";
-    UIImageView *backImg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 7, 25, 25)];
-    [backImg setImage:[UIImage imageNamed:@"sharenavigation_back"]];
-    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 25)];
-    [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [backBtn addSubview:backImg];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
+//    
+//    UIImageView *backImg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 7, 25, 25)];
+//    [backImg setImage:[UIImage imageNamed:@"sharenavigation_back"]];
+//    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 80, 25)];
+//    [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+//    [backBtn addSubview:backImg];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backBtn];
     _firstLabelArr = @[@"支付宝",@"微信"];
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
     //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
@@ -55,42 +55,62 @@
 
 -(void)initUI
 {
-    UIImageView *topImg = [[UIImageView alloc]init];
-    topImg.backgroundColor = [UIColor whiteColor];
+    UIView *topImg = [[UIView alloc]init];
+    topImg.backgroundColor =  RGBCOLOR(65, 165, 236);;
+    
     [self.view addSubview:topImg];
     [topImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
-        make.top.equalTo(64);
+        make.top.equalTo(0);
         make.height.equalTo(200);
     }];
+#pragma mark *******************返回按钮
+    
+    UIImageView *imgLeft = [[UIImageView alloc]initWithFrame:CGRectMake(20, 0, 25, 25)];
+    [imgLeft setImage:[UIImage imageNamed:@"sharenavigation_back"]];
+    UIButton *btnLeft =[[UIButton alloc]initWithFrame:CGRectMake(0, 30, 80, 25)];
+    [btnLeft addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [btnLeft addSubview:imgLeft];
+    [self.view addSubview:btnLeft];
+#pragma mark ********************tlttile
+    UILabel *titleLabel = [[UILabel alloc]init];
+    titleLabel.text = @"退还押金";
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.font = [UIFont systemFontOfSize:18];
+    [self.view addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(btnLeft.mas_centerY);
+    }];
+    
+    UILabel *topLabel = [[UILabel alloc]init];
+    topLabel.text = @"当前余额（元)";
+    topLabel.font = [UIFont systemFontOfSize:15];
+    topLabel.textColor = [UIColor whiteColor];
+    [topImg addSubview:topLabel];
+    [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(20);
+        make.top.equalTo(btnLeft.bottom).offset(20);
+    }];
+    
+    
+    
+//
+
     
     _allCash = [[UILabel alloc]init];
     _allCash.font = [UIFont systemFontOfSize:50];
     _allCash.text = _depositBalance;
-    _allCash.textColor = RGBCOLOR(236, 95, 80);
+    _allCash.textColor = [UIColor whiteColor];;
     [topImg addSubview:_allCash];
     [_allCash mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(topImg.mas_centerX);
-        make.top.equalTo(70);
+        make.left.equalTo(20);
+            make.top.equalTo(topLabel.bottom).offset(20);
     }];
+
     
-    UILabel *danWei = [[UILabel alloc]init];
-    danWei.text = @"元";
-    [topImg addSubview:danWei];
-    [danWei mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_allCash.right);
-        make.centerY.equalTo(_allCash.mas_centerY);
-    }];
     
-    UILabel *topLabel = [[UILabel alloc]init];
-    topLabel.text = @"(当前押金)";
-    topLabel.font = [UIFont systemFontOfSize:15];
-    topLabel.textColor = [UIColor grayColor];
-    [topImg addSubview:topLabel];
-    [topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(_allCash.centerX);
-        make.top.equalTo(_allCash.bottom).offset(10);
-    }];
+    
     
     UIImageView *middleView = [[UIImageView alloc]init];
     middleView.backgroundColor = [UIColor whiteColor];
@@ -98,15 +118,15 @@
     [middleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(0);
         make.top.equalTo(topImg.bottom).offset(10);
-        make.height.equalTo(115);
+        make.height.equalTo(40);
     }];
     
     UILabel *commitMoney = [[UILabel alloc]init];
     commitMoney.text = @"退还金额";
     [middleView addSubview:commitMoney];
     [commitMoney mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(25);
-        make.top.equalTo(15);
+        make.left.equalTo(20);
+        make.centerY.equalTo(middleView.centerY);
         make.width.equalTo(80);
     }];
     
@@ -117,7 +137,7 @@
     [middleView addSubview:danwei];
     [danwei mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(commitMoney.mas_centerY);
-        make.right.equalTo(-25);
+        make.right.equalTo(-10);
         make.width.equalTo(20);
     }];
     
@@ -131,22 +151,34 @@
         make.right.equalTo(danwei.left);
     }];
     
+    
+    //提现方式
+    UIImageView *middleView1 = [[UIImageView alloc]init];
+    middleView1.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:middleView1];
+    [middleView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(0);
+        make.top.equalTo(middleView.bottom).offset(10);
+        make.height.equalTo(40);
+    }];
+    
+    
     UILabel *commitType = [[UILabel alloc]init];
     commitType.text = @"提现方式";
-    [middleView addSubview:commitType];
+    [middleView1 addSubview:commitType];
     [commitType mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(25);
+        make.centerY.equalTo(middleView1.centerY);
+        make.left.equalTo(20);
         make.width.equalTo(80);
-        make.centerY.equalTo(middleView.mas_centerY);
     }];
     
     
     UIImageView *typeImg = [[UIImageView alloc]init];
     typeImg.image = [UIImage imageNamed:@"gray_blue_circle"];
-    [middleView addSubview:typeImg];
+    [middleView1 addSubview:typeImg];
     [typeImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(-25);
-        make.centerY.equalTo(middleView.mas_centerY);
+        make.right.equalTo(-10);
+        make.centerY.equalTo(middleView1.mas_centerY);
         make.width.height.equalTo(20);
     }];
     
@@ -168,16 +200,25 @@
     [_typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(typeImg.left);
         make.width.equalTo(100);
-        make.centerY.equalTo(middleView.mas_centerY);
+        make.centerY.equalTo(middleView1.mas_centerY);
+    }];
+    
+    UIImageView *middleView2 = [[UIImageView alloc]init];
+    middleView2.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:middleView2];
+    [middleView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(0);
+        make.top.equalTo(middleView1.bottom).offset(10);
+        make.height.equalTo(40);
     }];
     
     UILabel *commitID = [[UILabel alloc]init];
     commitID.text = @"提现账户";
-    [middleView addSubview:commitID];
+    [middleView2 addSubview:commitID];
     [commitID mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(25);
+        make.left.equalTo(20);
         make.width.equalTo(80);
-        make.bottom.equalTo(middleView.bottom).offset(-15);
+        make.centerY.equalTo(middleView2.centerY);
     }];
     
     _commitAccount = [[UITextField alloc]init];
@@ -190,8 +231,18 @@
     [self.view addSubview:_commitAccount];
     [_commitAccount mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(commitID.mas_centerY);
-        make.right.equalTo(-25);
+        make.right.equalTo(-10);
         make.left.equalTo(commitID.right).offset(10);
+    }];
+    
+    UILabel *noticeLabel = [[UILabel alloc]init];
+    noticeLabel.text = @"提现申请将在2-7个工作日内处理完成";
+    noticeLabel.font = [UIFont systemFontOfSize:12];
+    noticeLabel.textColor = [UIColor grayColor];
+    [self.view addSubview:noticeLabel];
+    [noticeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.bottom).offset(-15);
+        make.centerX.equalTo(self.view.mas_centerX);
     }];
     
     UIButton *applyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -205,21 +256,11 @@
         make.left.equalTo(15);
         make.right.equalTo(-15);
         make.height.equalTo(45);
-        make.top.equalTo(middleView.bottom).offset(45);
+        make.bottom.equalTo(noticeLabel.top).offset(-20);
     }];
     [applyBtn addTarget:self action:@selector(applyForCash) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel *noticeLabel = [[UILabel alloc]init];
-    noticeLabel.text = @"退款申请将在2-7个工作日内处理完成";
-    noticeLabel.font = [UIFont systemFontOfSize:12];
-    noticeLabel.textColor = [UIColor grayColor];
-    [self.view addSubview:noticeLabel];
-    [noticeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(applyBtn.bottom).offset(15);
-        make.centerX.equalTo(self.view.mas_centerX);
-    }];
-    
-    
+   
 }
 
 #pragma mark 开始输入时屏幕上移
