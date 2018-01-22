@@ -13,7 +13,7 @@
 #endif
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GeTuiSdkDelegate, UNUserNotificationCenterDelegate>
-
+//@interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 @property (strong, nonatomic) UIWindow *window;
 
 
