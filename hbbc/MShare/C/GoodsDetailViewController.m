@@ -54,11 +54,11 @@
         _bigScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
         [self.view addSubview:_bigScrollView];
         
-        _bigScrollView.bounces = NO;
+        _bigScrollView.bounces = YES;
         _bigScrollView.showsVerticalScrollIndicator = NO;
         _bigScrollView.showsHorizontalScrollIndicator = NO;
-        
-        _bigScrollView.contentSize = CGSizeMake(0, SCREEN_HEIGHT - 64);
+        _bigScrollView.backgroundColor = RGBCOLOR(233, 233, 234);
+        _bigScrollView.contentSize = CGSizeMake(0, SCREEN_HEIGHT);
     }
     return _bigScrollView;
 }
@@ -194,7 +194,8 @@
     }];
     
     _introLabel = [[UILabel alloc]init];
-    _introLabel.textColor = [UIColor grayColor];
+    _introLabel.backgroundColor = [UIColor whiteColor];
+    _introLabel.textColor = [UIColor blackColor];
     _introLabel.numberOfLines = 0;
     if ([_resPonsbody[@"GoodsIntroduceText"] isEqualToString:@""])
     {
@@ -204,31 +205,33 @@
     {
         _introLabel.text = [NSString stringWithFormat:@"物品简介:%@",_resPonsbody[@"GoodsIntroduceText"]];
     }
+    _introLabel.font = [UIFont systemFontOfSize:12];
     [_bigScrollView addSubview:_introLabel];
     [_introLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_scrollView.bottom).offset(5);
-        make.left.equalTo(25);
-        make.width.equalTo(SCREEN_WIDTH - 50);
+        make.top.equalTo(_scrollView.bottom).offset(10);
+       
+        make.height.equalTo(40);
+        make.width.equalTo(SCREEN_WIDTH);
     }];
     
     textViewHeight = [ self heightFromString:_introLabel.text withFont:[UIFont systemFontOfSize:17.0] constraintToWidth:SCREEN_WIDTH - 50];
-    
+   //第一个线
     _lineView = [[UIImageView alloc]init];
-    _lineView.backgroundColor = RGBCOLOR(245, 245, 245);
+    _lineView.backgroundColor = [UIColor whiteColor];
     [_bigScrollView addSubview:_lineView];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(0);
         make.width.equalTo(SCREEN_WIDTH);
-        make.height.equalTo(2);
-        make.top.equalTo(_introLabel.bottom).offset(15);
+        make.height.equalTo(40);
+        make.top.equalTo(_introLabel.bottom).offset(10);
     }];
     
     _leftImgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"redMoney.png"]];
-    [_bigScrollView addSubview:_leftImgView];
+    [_lineView addSubview:_leftImgView];
     [_leftImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(25);
+        make.left.equalTo(10);
         make.height.width.equalTo(13);
-        make.top.equalTo(_lineView.bottom).offset(15);
+        make.centerY.equalTo(_lineView.centerY);
     }];
     
     _priceLabel = [[UILabel alloc]init];
@@ -268,21 +271,43 @@
         make.width.height.equalTo(13);
     }];
     
-    _lineView = [[UIImageView alloc]init];
-    _lineView.backgroundColor = RGBCOLOR(245, 245, 245);
-    [_bigScrollView addSubview:_lineView];
-    [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(0);
-        make.width.equalTo(SCREEN_WIDTH);
-        make.height.equalTo(1);
-        make.top.equalTo(_leftImgView.bottom).offset(15);
-    }];
+ 
     
     NSArray *imageArr = @[@"caise1",@"caise2",@"caise3",@"caise4",@"caise5",@"caise6",@"caise1"];
     _keywordString = _resPonsbody[@"LabelContent"];
     NSArray *keyArray = [_keywordString componentsSeparatedByString:@";"];
     _keywordArr = [NSMutableArray arrayWithArray:keyArray];
     [_keywordArr removeLastObject];
+    
+    _lineView = [[UIImageView alloc]init];
+    _lineView.backgroundColor = [UIColor whiteColor];
+    [_bigScrollView addSubview:_lineView];
+    [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.width.equalTo(SCREEN_WIDTH);
+        make.height.equalTo(40);
+        make.top.equalTo(_leftImgView.bottom).offset(20);
+    }];
+    
+   UIImageView *lineView1 = [[UIImageView alloc]init];
+    lineView1.backgroundColor = [UIColor whiteColor];
+    [_bigScrollView addSubview:lineView1];
+    [lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.width.equalTo(SCREEN_WIDTH);
+        make.height.equalTo(40);
+        make.top.equalTo(_lineView.bottom).offset(10);
+    }];
+    
+    UIImageView *lineView2 = [[UIImageView alloc]init];
+    lineView2.backgroundColor = [UIColor whiteColor];
+    [_bigScrollView addSubview:lineView2];
+    [lineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.width.equalTo(SCREEN_WIDTH);
+        make.height.equalTo(40);
+        make.top.equalTo(lineView1.bottom).offset(10);
+    }];
     
     for (int i = 0; i < _keywordArr.count; i++)
     {
@@ -293,8 +318,8 @@
         imgView.image = [UIImage imageNamed:imageArr[i]];
         [_bigScrollView addSubview:imgView];
         [imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_lineView.bottom).offset(25 + i / 2 * 50);
-            make.left.equalTo(25 + i % 2 * SCREEN_WIDTH/2);
+            make.top.equalTo(_lineView.top).offset(10+ i / 2 * 50);
+            make.left.equalTo(10 + i % 2 * (SCREEN_WIDTH/2+10));
             make.width.height.equalTo(15);
         }];
         
@@ -318,23 +343,24 @@
     }
     
     _lineView = [[UIImageView alloc]init];
-    _lineView.backgroundColor = RGBCOLOR(245, 245, 245);
+    _lineView.backgroundColor = [UIColor whiteColor];
     [_bigScrollView addSubview:_lineView];
     [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(0);
         make.width.equalTo(SCREEN_WIDTH);
-        make.height.equalTo(1);
+        make.height.equalTo(80);
         make.top.equalTo(_rlabel.bottom).offset(15);
     }];
     
     _addressLabel = [[UILabel alloc]init];
     _addressLabel.text = [@"地址:" stringByAppendingString:_addr];
     _addressLabel.numberOfLines = 0;
+    _addressLabel.font =[UIFont systemFontOfSize:16];
     [_bigScrollView addSubview:_addressLabel];
     [_addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(30);
+        make.left.equalTo(10);
         make.width.equalTo(SCREEN_WIDTH - 60);
-        make.top.equalTo(_lineView.bottom).offset(15);
+        make.top.equalTo(_lineView.top).offset(15);
     }];
     
     _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
