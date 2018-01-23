@@ -39,9 +39,9 @@ typedef enum {
     [self checkOnNetWorkingStatus];
 
     // 通过个推平台分配的appId、 appKey 、appSecret 启动SDK，注：该方法需要在主线程中调用
-    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
+//    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
-    [self registerRemoteNotification];
+//    [self registerRemoteNotification];
     
     return YES;
     
@@ -277,14 +277,14 @@ typedef enum {
     NSLog(@"\n>>>[DeviceToken Success]:%@\n\n", token);
     
     //向个推服务器注册deviceToken
-    [GeTuiSdk registerDeviceToken:token];
+//    [GeTuiSdk registerDeviceToken:token];
 }
 
 
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    /// Background Fetch 恢复SDK 运行
-    [GeTuiSdk resume];
+//    /// Background Fetch 恢复SDK 运行
+//    [GeTuiSdk resume];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
@@ -292,7 +292,7 @@ typedef enum {
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     // 将收到的APNs信息传给个推统计
-    [GeTuiSdk handleRemoteNotification:userInfo];
+//    [GeTuiSdk handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
@@ -362,8 +362,8 @@ typedef enum {
     NSLog(@"didReceiveNotification：%@", response.notification.request.content.userInfo);
     
     // [ GTSdk ]：将收到的APNs信息传给个推统计
-    [GeTuiSdk handleRemoteNotification:response.notification.request.content.userInfo];
-    
+//    [GeTuiSdk handleRemoteNotification:response.notification.request.content.userInfo];
+//    
     completionHandler();
 }
 

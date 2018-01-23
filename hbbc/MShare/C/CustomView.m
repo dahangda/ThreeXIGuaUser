@@ -67,7 +67,7 @@
         }];
         
         UIImageView *bottonView =[[UIImageView alloc]init];
-        bottonView.image = [UIImage imageNamed:@"home1.jpg"];
+        bottonView.image = [UIImage imageNamed:@"home1.png"];
         [self addSubview:bottonView];
         [bottonView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(lineView.bottom).offset(5+ltLabel.height/2);
@@ -96,7 +96,7 @@
         }];
         
         UIImageView *bottonView1 =[[UIImageView alloc]init];
-        bottonView1.image = [UIImage imageNamed:@"home2.jpg"];
+        bottonView1.image = [UIImage imageNamed:@"home2.png"];
         [self addSubview:bottonView1];
         [bottonView1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(lineView.bottom).offset(5+ltLabel.height/2);
@@ -125,7 +125,7 @@
             make.width.equalTo(60);
         }];
         UIImageView *bottonView2 =[[UIImageView alloc]init];
-        bottonView2.image = [UIImage imageNamed:@"home3.jpg"];
+        bottonView2.image = [UIImage imageNamed:@"home3.png"];
         [self addSubview:bottonView2];
         [bottonView2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(ltLabel.bottom).offset(10+ltLabel.height/2);
@@ -152,7 +152,7 @@
             make.width.equalTo(60);
         }];
         UIImageView *bottonView3 =[[UIImageView alloc]init];
-        bottonView3.image = [UIImage imageNamed:@"home4.jpg"];
+        bottonView3.image = [UIImage imageNamed:@"home4.png"];
         [self addSubview:bottonView3];
         [bottonView3 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(rtLabel.bottom).offset(10+ltLabel.height/2);

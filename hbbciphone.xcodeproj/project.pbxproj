@@ -340,12 +340,10 @@
 		E30B2CBB200F28B100B5A36B /* AbourtUsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CBA200F28B100B5A36B /* AbourtUsView.xib */; };
 		E30B2CBE200F28CA00B5A36B /* AbourtUsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30B2CBD200F28CA00B5A36B /* AbourtUsView.m */; };
 		E30B2CC0200F5FBD00B5A36B /* wq.png in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CBF200F5FBD00B5A36B /* wq.png */; };
-		E30B2CC52012004500B5A36B /* home1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CC12012004300B5A36B /* home1.jpg */; };
-		E30B2CC62012004500B5A36B /* home3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CC22012004400B5A36B /* home3.jpg */; };
-		E30B2CC72012004500B5A36B /* home4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CC32012004500B5A36B /* home4.jpg */; };
-		E30B2CC82012004500B5A36B /* home2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CC42012004500B5A36B /* home2.jpg */; };
-		E30B2CCE2015D63800B5A36B /* libGeTuiSdk-1.5.3-noidfa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B2CCC2015D63700B5A36B /* libGeTuiSdk-1.5.3-noidfa.a */; };
-		E30B2CCF2015D63800B5A36B /* libGtExtensionSdk-1.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B2CCD2015D63700B5A36B /* libGtExtensionSdk-1.0.0.a */; };
+		E30B2CD32015F57200B5A36B /* home1.png in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CD02015F57100B5A36B /* home1.png */; };
+		E30B2CD42015F57200B5A36B /* home2.png in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CD12015F57200B5A36B /* home2.png */; };
+		E30B2CD52015F57200B5A36B /* home3.png in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CD22015F57200B5A36B /* home3.png */; };
+		E30B2CD72015F57800B5A36B /* home4.png in Resources */ = {isa = PBXBuildFile; fileRef = E30B2CD62015F57700B5A36B /* home4.png */; };
 		E317364B1DB74CD000101294 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E317364A1DB74CD000101294 /* main.m */; };
 		E31736541DB74CD100101294 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31736521DB74CD100101294 /* Main.storyboard */; };
 		E31736561DB74CD100101294 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E31736551DB74CD100101294 /* Assets.xcassets */; };
@@ -657,7 +655,6 @@
 		20379F671F98519B00123406 /* DotPayOrdersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DotPayOrdersViewController.m; sourceTree = "<group>"; };
 		20379F691F9851B900123406 /* DidPayOrdersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DidPayOrdersViewController.h; sourceTree = "<group>"; };
 		20379F6A1F9851B900123406 /* DidPayOrdersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DidPayOrdersViewController.m; sourceTree = "<group>"; };
-		20379F741F987E7700123406 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		203DB7841FD674F50093681D /* TheBillViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TheBillViewController.h; sourceTree = "<group>"; };
 		203DB7851FD674F50093681D /* TheBillViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheBillViewController.m; sourceTree = "<group>"; };
 		203DB7871FD675550093681D /* OrderBillViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderBillViewController.h; sourceTree = "<group>"; };
@@ -991,14 +988,10 @@
 		E30B2CBC200F28CA00B5A36B /* AbourtUsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbourtUsView.h; sourceTree = "<group>"; };
 		E30B2CBD200F28CA00B5A36B /* AbourtUsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AbourtUsView.m; sourceTree = "<group>"; };
 		E30B2CBF200F5FBD00B5A36B /* wq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wq.png; sourceTree = "<group>"; };
-		E30B2CC12012004300B5A36B /* home1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home1.jpg; sourceTree = "<group>"; };
-		E30B2CC22012004400B5A36B /* home3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home3.jpg; sourceTree = "<group>"; };
-		E30B2CC32012004500B5A36B /* home4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home4.jpg; sourceTree = "<group>"; };
-		E30B2CC42012004500B5A36B /* home2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home2.jpg; sourceTree = "<group>"; };
-		E30B2CCA2015D5D000B5A36B /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
-		E30B2CCB2015D5D000B5A36B /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
-		E30B2CCC2015D63700B5A36B /* libGeTuiSdk-1.5.3-noidfa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.5.3-noidfa.a"; sourceTree = "<group>"; };
-		E30B2CCD2015D63700B5A36B /* libGtExtensionSdk-1.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGtExtensionSdk-1.0.0.a"; sourceTree = "<group>"; };
+		E30B2CD02015F57100B5A36B /* home1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home1.png; sourceTree = "<group>"; };
+		E30B2CD12015F57200B5A36B /* home2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home2.png; sourceTree = "<group>"; };
+		E30B2CD22015F57200B5A36B /* home3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home3.png; sourceTree = "<group>"; };
+		E30B2CD62015F57700B5A36B /* home4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home4.png; sourceTree = "<group>"; };
 		E31736461DB74CD000101294 /* hbbciphone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hbbciphone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E317364A1DB74CD000101294 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E31736531DB74CD100101294 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -1150,13 +1143,11 @@
 				20E149531F147BDA007F8C2E /* OpenGLES.framework in Frameworks */,
 				E38B52A11DDC576000F578EC /* UserNotifications.framework in Frameworks */,
 				E38B529D1DDC55D400F578EC /* CoreLocation.framework in Frameworks */,
-				E30B2CCF2015D63800B5A36B /* libGtExtensionSdk-1.0.0.a in Frameworks */,
 				20E1492F1F147A08007F8C2E /* MAMapKit.framework in Frameworks */,
 				2087978D1F4AA6CF00B89466 /* libWeChatSDK.a in Frameworks */,
 				E38B529B1DDC55CA00F578EC /* JavaScriptCore.framework in Frameworks */,
 				E38B52991DDC55C100F578EC /* AVFoundation.framework in Frameworks */,
 				E38B52931DDC55A200F578EC /* MobileCoreServices.framework in Frameworks */,
-				E30B2CCE2015D63800B5A36B /* libGeTuiSdk-1.5.3-noidfa.a in Frameworks */,
 				E38B52911DDC559400F578EC /* Security.framework in Frameworks */,
 				E38B528F1DDC558B00F578EC /* libsqlite3.tbd in Frameworks */,
 				20E1492E1F147A08007F8C2E /* AMapSearchKit.framework in Frameworks */,
@@ -1181,10 +1172,10 @@
 		20020A461FB57A0000B17F51 /* 切图 */ = {
 			isa = PBXGroup;
 			children = (
-				E30B2CC12012004300B5A36B /* home1.jpg */,
-				E30B2CC42012004500B5A36B /* home2.jpg */,
-				E30B2CC22012004400B5A36B /* home3.jpg */,
-				E30B2CC32012004500B5A36B /* home4.jpg */,
+				E30B2CD62015F57700B5A36B /* home4.png */,
+				E30B2CD02015F57100B5A36B /* home1.png */,
+				E30B2CD12015F57200B5A36B /* home2.png */,
+				E30B2CD22015F57200B5A36B /* home3.png */,
 				E30B2CBF200F5FBD00B5A36B /* wq.png */,
 				20020A471FB57A0000B17F51 /* 1.png */,
 				20020A481FB57A0000B17F51 /* caise4.png */,
@@ -2082,7 +2073,6 @@
 				204E159A1FA8A1FB00AEB2F3 /* 2B21628707ED00DFD8817C3235A518BE.jpg */,
 				204E15961FA85E7100AEB2F3 /* datouzheng.png */,
 				20375A991FA81BC900A26137 /* thelogo.png */,
-				20379F741F987E7700123406 /* 5.jpg */,
 				20226E1B1FA1EB220071811E /* line.png */,
 				20226E1D1FA1EB230071811E /* line@2x.png */,
 				20226E1C1FA1EB230071811E /* pick_bg.png */,
@@ -2240,17 +2230,6 @@
 			name = "退还押金";
 			sourceTree = "<group>";
 		};
-		E30B2CC92015D5D000B5A36B /* GtSdkLib-noidfa */ = {
-			isa = PBXGroup;
-			children = (
-				E30B2CCC2015D63700B5A36B /* libGeTuiSdk-1.5.3-noidfa.a */,
-				E30B2CCD2015D63700B5A36B /* libGtExtensionSdk-1.0.0.a */,
-				E30B2CCA2015D5D000B5A36B /* GeTuiExtSdk.h */,
-				E30B2CCB2015D5D000B5A36B /* GeTuiSdk.h */,
-			);
-			path = "GtSdkLib-noidfa";
-			sourceTree = "<group>";
-		};
 		E317363D1DB74CD000101294 = {
 			isa = PBXGroup;
 			children = (
@@ -2296,7 +2275,6 @@
 		E31736641DB7507D00101294 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				E30B2CC92015D5D000B5A36B /* GtSdkLib-noidfa */,
 				20354F0C1FC50DD900755303 /* 动画进度条 */,
 				20349E3D1FBD34D00039408C /* 路径规划 */,
 				20020A421FB5467100B17F51 /* 进度条 */,
@@ -2677,8 +2655,6 @@
 				20DC06EE1F3D457B004AFDB6 /* mshare_system_message_unselected.png in Resources */,
 				20020A701FB57A0000B17F51 /* caise6.png in Resources */,
 				20020A8F1FB57A0000B17F51 /* 6.png in Resources */,
-				E30B2CC72012004500B5A36B /* home4.jpg in Resources */,
-				E30B2CC62012004500B5A36B /* home3.jpg in Resources */,
 				200AAA861F4E83180019999A /* gpsStat2@2x.png in Resources */,
 				203DFFD91F6A5F9300B03CB8 /* sharer_pink_circle.png in Resources */,
 				20BE5AAE1F7E3FAA00D7AB35 /* 11.png in Resources */,
@@ -2691,6 +2667,7 @@
 				205F3F9D1F179F770042FE43 /* mshare_position_pressed.png in Resources */,
 				201829E51F500C1000BF6150 /* myItems.png in Resources */,
 				20FD350E1F1CA80A008F55CF /* scan_line@2x.png in Resources */,
+				E30B2CD42015F57200B5A36B /* home2.png in Resources */,
 				20020A781FB57A0000B17F51 /* 2.png in Resources */,
 				201DCBAA1F908E8900A8FBAF /* 用户协议.png in Resources */,
 				201829EF1F50280600BF6150 /* introLabel.png in Resources */,
@@ -2759,7 +2736,6 @@
 				205F3FA91F179F770042FE43 /* mshare_logo.png in Resources */,
 				20FD34B81F1C4501008F55CF /* start_annotation@3x.png in Resources */,
 				203DFFDA1F6A5F9300B03CB8 /* sharer_light_blue_circle.png in Resources */,
-				E30B2CC82012004500B5A36B /* home2.jpg in Resources */,
 				205F3F7C1F173C5E0042FE43 /* qq@3x的副本.png in Resources */,
 				20020A751FB57A0000B17F51 /* kuang.png in Resources */,
 				20F851271F30338D00C041AA /* mshare_message_icon.png in Resources */,
@@ -2784,6 +2760,7 @@
 				20020A711FB57A0000B17F51 /* lookPath.png in Resources */,
 				20A53AEE1F56584E00C9CCD2 /* bianhao.png in Resources */,
 				20020A861FB57A0000B17F51 /* 32.png in Resources */,
+				E30B2CD52015F57200B5A36B /* home3.png in Resources */,
 				204E15971FA85E7200AEB2F3 /* datouzheng.png in Resources */,
 				20F1DD3E1FC2B899006683B9 /* lockFail.png in Resources */,
 				203DFFCE1F6A5DC600B03CB8 /* mshare_order_payment_mode_checked.png in Resources */,
@@ -2795,7 +2772,6 @@
 				205F3FA51F179F770042FE43 /* mshare_scan_torch_white.png in Resources */,
 				E31736541DB74CD100101294 /* Main.storyboard in Resources */,
 				204B1EE71F1E42AC0067FB49 /* share1.png in Resources */,
-				E30B2CC52012004500B5A36B /* home1.jpg in Resources */,
 				205F3FC91F185F4A0042FE43 /* pay_wechat@3x.png in Resources */,
 				208E19AE1F31F1F100A5A596 /* pay_disanfang@2x.png in Resources */,
 				20020A7B1FB57A0000B17F51 /* payImg.png in Resources */,
@@ -2814,12 +2790,14 @@
 				202952941FC4116500947A72 /* lockOK.png in Resources */,
 				20375A9A1FA81BCA00A26137 /* thelogo.png in Resources */,
 				E35357941DD406BD00AF8857 /* location.plist in Resources */,
+				E30B2CD72015F57800B5A36B /* home4.png in Resources */,
 				207D9A8A1F1DB311006EBC76 /* backtoWhite.png in Resources */,
 				20F952091F99A8E900CE1BC1 /* 提现.png in Resources */,
 				203DFFE11F6A601900B03CB8 /* gray_blue_circle.png in Resources */,
 				205F3FA11F179F770042FE43 /* mshare_excavator.png in Resources */,
 				20020A741FB57A0000B17F51 /* 16.png in Resources */,
 				20020A921FB57A0000B17F51 /* caise3.png in Resources */,
+				E30B2CD32015F57200B5A36B /* home1.png in Resources */,
 				205F3FA71F179F770042FE43 /* mshare_search.png in Resources */,
 				20020A771FB57A0000B17F51 /* 19.png in Resources */,
 				20FD34B71F1C4500008F55CF /* start_annotation@2x.png in Resources */,
